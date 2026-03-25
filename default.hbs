@@ -14,12 +14,24 @@
     <div class="site-wrapper">
         
         <header class="site-header-global">
-            <div class="inner-container">
-                <a class="site-nav-logo" href="{{@site.url}}">{{@site.title}}</a>
-                {{#if @site.navigation}}
-                    {{navigation}}
-                {{/if}}
+            <div class="inner-container header-layout">
+                <div class="header-logo-container">
+                    <a class="site-nav-logo" href="{{@site.url}}">
+                        {{#if @site.logo}}
+                            <img src="{{@site.logo}}" alt="{{@site.title}}" class="logo-image" />
+                        {{else}}
+                            {{@site.title}}
+                        {{/if}}
+                    </a>
+                </div>
+                
+                <div class="header-nav-container">
+                    {{#if @site.navigation}}
+                        {{navigation}}
+                    {{/if}}
+                </div>
             </div>
+            <div class="header-divider"></div>
         </header>
 
         {{{body}}}
@@ -29,8 +41,8 @@
                 <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
                 <nav class="site-footer-nav">
                     <a href="{{@site.url}}">Latest Posts</a>
-                    {{#if @site.facebook}}<a href="{{social_url type="facebook" @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
-                    {{#if @site.twitter}}<a href="{{social_url type="twitter" @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
+                    {{#if @site.facebook}}<a href="{{social_url type="facebook"}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
+                    {{#if @site.twitter}}<a href="{{social_url type="twitter"}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
                 </nav>
             </div>
         </footer>

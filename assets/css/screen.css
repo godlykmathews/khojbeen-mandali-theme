@@ -132,3 +132,109 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.site-header-global {
+    margin-top: 1rem;
+}
+
+.header-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+.header-logo-container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.site-nav-logo {
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+}
+
+.logo-image {
+    max-height: 80px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.header-nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+}
+
+ul.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+ul.nav li {
+    position: relative;
+}
+
+ul.nav li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    padding: 0.5rem 0;
+}
+
+ul.nav li a:hover {
+    color: var(--accent-color);
+}
+
+/* 
+  Dropdown CSS handling 
+  By default Ghost doesn't support nested {{navigation}}.
+  If you add a menu item called "Work" (which outputs .nav-work),
+  you can attach a dropdown structure to it via custom partials or JS.
+*/
+.nav-work .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--bg-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    min-width: 150px;
+    padding: 0.5rem 0;
+    z-index: 100;
+}
+
+.nav-work:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-work .dropdown-menu li {
+    display: block;
+}
+
+.nav-work .dropdown-menu li a {
+    padding: 0.5rem 1rem;
+    display: block;
+    font-size: 0.95rem;
+}
+
+.header-divider {
+    border-bottom: 1px solid #eaeaea;
+    max-width: var(--max-width);
+    margin: 0 auto 2rem auto;
+}
+

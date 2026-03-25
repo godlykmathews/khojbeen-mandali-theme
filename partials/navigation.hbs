@@ -1,0 +1,17 @@
+<ul class="nav">
+    {{#foreach navigation}}
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}} {{#if current}}nav-current{{/if}}">
+            <a href="{{url absolute="true"}}">{{label}}</a>
+            
+            {{!-- This creates a static dropdown for the "Work" menu item --}}
+            {{#has slug="work"}}
+                <ul class="dropdown-menu">
+                    <li><a href="/work/project-1/">Project 1</a></li>
+                    <li><a href="/work/project-2/">Project 2</a></li>
+                    <li><a href="/work/project-3/">Project 3</a></li>
+                </ul>
+            {{/has}}
+            
+        </li>
+    {{/foreach}}
+</ul>
