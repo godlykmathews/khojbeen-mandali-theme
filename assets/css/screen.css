@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-logo-container {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .site-nav-logo {
@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-image {
-    max-height: 80px;
+    max-height: 140px;
     width: auto;
     display: block;
     margin: 0 auto;
