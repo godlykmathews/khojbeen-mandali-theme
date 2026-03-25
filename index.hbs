@@ -27,33 +27,31 @@
       class="work-section"
       style="margin: 0 auto 4rem auto; max-width: 1200px;"
     >
-      <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 2rem;" />
-      {{#get "posts" filter="tag:work" limit="all"}}
+      {{#get "posts" filter="tag:hash-home-posts" limit="all"}}
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
         {{#foreach posts}}
           <article
             class="work-post"
-            style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; {{#if @odd}}flex-direction: row-reverse;{{/if}}"
+            style="display: flex; gap: 4rem; align-items: center; padding: 3rem; flex-wrap: wrap; {{#if @even}}background-color: #e5ead3; flex-direction: row; text-align: right;{{else}}background-color: transparent; flex-direction: row-reverse; text-align: left;{{/if}}"
           >
             {{#if feature_image}}
-              <a href="{{url}}" style="flex: 0 0 200px; max-width: 100%;">
+              <div style="flex: 1; min-width: 300px;">
                 <img
-                  src="{{img_url feature_image size="m"}}"
+                  src="{{img_url feature_image size="l"}}"
                   alt="{{title}}"
-                  style="width: 100%; height: auto; object-fit: cover; border-radius: 50%; aspect-ratio: 1/1;"
+                  style="width: 100%; height: auto; object-fit: cover; border: 2px solid #2b6142;"
                   loading="lazy"
                 />
-              </a>
+              </div>
             {{/if}}
-            <div class="work-content" style="flex: 1; min-width: 250px;">
-              <h3 style="margin-top: 0; font-size: 1.5rem;">{{title}}</h3>
-              <p style="margin-top: 0.5rem; color: #555;">{{excerpt words="20"}}
-                <a href="{{url}}" style="font-weight: bold;">read more...</a></p>
+            <div class="work-content" style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; {{#if @even}}align-items: flex-end;{{else}}align-items: flex-start;{{/if}}">
+              <h2 style="margin-top: 0; margin-bottom: 1rem; font-size: 2rem; color: #111;">{{title}}</h2>
+              <p style="margin: 0 0 1.5rem 0; color: #444; font-size: 1.15rem; line-height: 1.6;">{{excerpt words="30"}}</p>
+              <a href="{{url}}" style="display: inline-block; background-color: #31724a; color: white; padding: 0.6rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.15);">READ MORE</a>
             </div>
           </article>
-          <hr
-            style="border: 0; border-top: 1px solid #eee; margin-bottom: 2rem;"
-          />
         {{/foreach}}
+        </div>
       {{/get}}
     </section>
 
