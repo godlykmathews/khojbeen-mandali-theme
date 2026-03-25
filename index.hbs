@@ -57,7 +57,25 @@
       {{/get}}
     </section>
 
-    {{pagination}}
-
+    <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
+      <h2 style="margin-bottom: 2rem;">Our Partners</h2>
+      <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        {{#get "posts" filter="tag:hash-partner" limit="all"}}
+          {{#foreach posts}}
+            {{#if feature_image}}
+              <a href="{{url}}" title="{{title}}" style="flex: 0 0 auto;">
+                <img
+                  src="{{img_url feature_image size="s"}}"
+                  alt="{{title}}"
+                  style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"
+                  loading="lazy"
+                />
+              </a>
+            {{/if}}
+          {{/foreach}}
+        {{/get}}
+      </div>
+    </section>
+    
   </div>
 </main>
