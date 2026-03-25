@@ -117,5 +117,25 @@
       </div>
     </section>
 
+        <section class="partners-section featured-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
+      <h1 style="margin-bottom: 2rem;">As Featured In</h1>
+      <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+        {{#get "posts" filter="tag:hash-featured" limit="all"}}
+          {{#foreach posts}}
+            {{#if feature_image}}
+              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" target="_blank" rel="noopener noreferrer" style="flex: 0 0 auto; transition: transform 0.2s ease, opacity 0.2s ease;">
+                <img
+                  src="{{img_url feature_image size="s"}}"
+                  alt="{{title}}"
+                  style="width: auto; height: 90px; object-fit: contain;"
+                  loading="lazy"
+                />
+              </a>
+            {{/if}}
+          {{/foreach}}
+        {{/get}}
+      </div>
+    </section>
+
   </div>
 </main>
