@@ -23,6 +23,39 @@
 
   <div class="inner-container">
 
+    <section
+      class="work-section"
+      style="margin: 0 auto 4rem auto; max-width: 1200px;"
+    >
+      <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 2rem;" />
+      {{#get "posts" filter="tag:work" limit="all"}}
+        {{#foreach posts}}
+          <article
+            class="work-post"
+            style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; {{#if @odd}}flex-direction: row-reverse;{{/if}}"
+          >
+            {{#if feature_image}}
+              <a href="{{url}}" style="flex: 0 0 200px; max-width: 100%;">
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  style="width: 100%; height: auto; object-fit: cover; border-radius: 50%; aspect-ratio: 1/1;"
+                  loading="lazy"
+                />
+              </a>
+            {{/if}}
+            <div class="work-content" style="flex: 1; min-width: 250px;">
+              <h3 style="margin-top: 0; font-size: 1.5rem;">{{title}}</h3>
+              <p style="margin-top: 0.5rem; color: #555;">{{excerpt words="20"}}
+                <a href="{{url}}" style="font-weight: bold;">read more...</a></p>
+            </div>
+          </article>
+          <hr
+            style="border: 0; border-top: 1px solid #eee; margin-bottom: 2rem;"
+          />
+        {{/foreach}}
+      {{/get}}
+    </section>
 
     {{pagination}}
 
