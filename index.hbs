@@ -1,24 +1,30 @@
 {{!< default}}
 
 <main id="main-content" class="site-main">
-    <div class="inner-container">
-        
-        {{!-- HERO SECTION: Cover Image | Description --}}
-        <section class="hero-section">
-            {{#if @site.cover_image}}
-                <div class="hero-image-container">
-                    <img class="hero-image" src="{{@site.cover_image}}" alt="{{@site.title}}" loading="lazy" />
-                </div>
-            {{/if}}
-            
-            <div class="hero-content">
-                {{#if @site.description}}
-                    <h1 class="hero-description">{{@site.description}}</h1>
-                {{/if}}
-            </div>
-        </section>
+  {{! HERO SECTION: Cover Image | Description }}
+  <section class="hero-section">
+    {{#if @site.cover_image}}
+      <div class="hero-image-container">
+        <img
+          class="hero-image"
+          src="{{@site.cover_image}}"
+          alt="{{@site.title}}"
+          loading="lazy"
+        />
+      </div>
+    {{/if}}
 
-        {{pagination}}
-        
+    <div class="hero-content">
+      {{#if @site.description}}
+        <h1 class="hero-description">{{@site.description}}</h1>
+      {{/if}}
     </div>
+  </section>
+
+  <div class="inner-container">
+
+
+    {{pagination}}
+
+  </div>
 </main>

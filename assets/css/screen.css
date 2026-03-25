@@ -16,6 +16,25 @@ body {
     padding: 0;
 }
 
+/* Base formatting for all images to prevent bleeding/overflow */
+img, figure, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix specific Ghost image gallery and card behaviors */
+.kg-image-card img,
+.kg-gallery-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.gh-content figure {
+    margin: 2rem 0;
+}
+
 .inner-container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -27,23 +46,26 @@ body {
    ========================================================================== */
 .hero-section {
     display: flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit) * 1.5);
-    margin-top: calc(var(--spacing-unit) * 1);
+    align-items: stretch; /* Make children stretch to same height */
+    gap: 0;               /* Remove gap so they touch horizontally */
     margin-bottom: calc(var(--spacing-unit) * 3);
+    background-color: #f1f8e9; /* The pale green background from the image */
+    border-radius: 0;
+    overflow: hidden;
 }
 
 .hero-image-container {
     flex: 1; /* Takes up half the space */
+    min-height: 400px;
 }
 
 .hero-image {
     width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    height: 100%;
+    max-height: none;   /* Remove max-height limit */
+    object-fit: cover;  /* Keep aspect ratio while filling container */
+    border-radius: 0;   /* Remove rounded corners */
+    box-shadow: none;   /* Remove shadow */
     display: block;
 }
 
@@ -52,14 +74,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 3rem; /* Add padding to keep text away from edges */
 }
 
 .hero-description {
     font-size: 2.2rem;
-    font-weight: 300;
-    color: #555;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
+    font-weight: 700;   /* Make it bold like the image */
+    color: #000;        /* Make it black like the image */
+    letter-spacing: -0.01em;
+    line-height: 1.2;
     margin: 0;
 }
 
