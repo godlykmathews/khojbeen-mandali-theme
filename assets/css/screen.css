@@ -202,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
    Header & Navigation
    ========================================================================== */
 .site-header-global {
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .header-layout {
@@ -337,13 +337,29 @@ ul.nav li a:hover {
     flex-wrap: wrap;
 }
 
-.site-footer-nav a {
+.site-footer-nav ul.nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-footer-nav ul.nav li {
+    padding: 0;
+}
+
+.site-footer-nav a,
+.site-footer-nav ul.nav a {
     color: #6c757d;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.site-footer-nav a:hover {
+.site-footer-nav a:hover,
+.site-footer-nav ul.nav a:hover {
     color: var(--accent-color);
 }
 
@@ -358,9 +374,18 @@ ul.nav li a:hover {
         flex-direction: column;
         text-align: center;
         justify-content: center;
+        gap: 1rem;
     }
     
     .site-footer-nav {
         justify-content: center;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .site-footer-nav ul.nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }
