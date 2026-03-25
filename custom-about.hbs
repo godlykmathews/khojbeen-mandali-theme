@@ -1,0 +1,33 @@
+{{!< default}}
+
+{{#post}}
+<main id="main-content" class="site-main" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+    <div class="inner-container" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 2rem;">
+        <article class="post-single {{post_class}}">
+            <header class="post-single-header" style="margin-bottom: 2rem;">
+                {{#if feature_image}}
+                <figure class="post-single-image" style="margin-bottom: 2rem; text-align: center;">
+                    <img
+                        srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1000w"
+                        sizes="(min-width: 1000px) 1000px, 92vw"
+                        src="{{img_url feature_image size="l"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                        style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 0 auto;"
+                    />
+                </figure>
+                {{/if}}
+                
+                {{#if custom_excerpt}}
+                    <p class="post-single-excerpt" style="font-size: 1.25rem; color: #555;">{{custom_excerpt}}</p>
+                {{/if}}
+            </header>
+
+            <div class="post-single-content gh-content" style="font-size: 1.1rem; line-height: 1.8;">
+                {{content}}
+            </div>
+        </article>
+    </div>
+</main>
+{{/post}}
