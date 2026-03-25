@@ -1,54 +1,79 @@
-<!DOCTYPE html>
 <html lang="{{@site.locale}}">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{meta_title}}</title>
-    
-    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    
+
+    <link rel="stylesheet" type="text/css" href="{{asset 'css/screen.css'}}" />
+
     {{ghost_head}}
-</head>
-<body class="{{body_class}}">
+  </head>
+  <body class="{{body_class}}">
     <div class="site-wrapper">
-        
-        <header class="site-header-global">
-            <div class="inner-container header-layout">
-                <div class="header-logo-container">
-                    <a class="site-nav-logo" href="{{@site.url}}">
-                        {{#if @site.logo}}
-                            <img src="{{@site.logo}}" alt="{{@site.title}}" class="logo-image" />
-                        {{else}}
-                            {{@site.title}}
-                        {{/if}}
-                    </a>
-                </div>
-                
-                <div class="header-nav-container">
-                    {{#if @site.navigation}}
-                        {{navigation}}
-                    {{/if}}
-                </div>
-            </div>
-            <div class="header-divider"></div>
-        </header>
 
-        {{{body}}}
+      <header class="site-header-global">
+        <div class="inner-container header-layout">
+          <div class="header-logo-container">
+            <a class="site-nav-logo" href="{{@site.url}}">
+              {{#if @site.logo}}
+                <img
+                  src="{{@site.logo}}"
+                  alt="{{@site.title}}"
+                  class="logo-image"
+                />
+              {{else}}
+                {{@site.title}}
+              {{/if}}
+            </a>
+          </div>
 
-        <footer class="site-footer-global">
-            <div class="inner-container">
-                <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
-                <nav class="site-footer-nav">
-                    <a href="{{@site.url}}">Latest Posts</a>
-                    {{#if @site.facebook}}<a href="{{social_url type="facebook"}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
-                    {{#if @site.twitter}}<a href="{{social_url type="twitter"}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
-                </nav>
-            </div>
-        </footer>
+          <div class="header-nav-container">
+            {{#if @site.navigation}}
+              {{navigation}}
+            {{/if}}
+          </div>
+        </div>
+        <div class="header-divider"></div>
+      </header>
+
+      {{{body}}}
+
+      <footer class="site-footer-global">
+        <div class="inner-container">
+          <section class="copyright">
+            <a href="{{@site.url}}">{{@site.title}}</a>
+            &copy;
+            {{date format="YYYY"}}. All rights reserved.
+          </section>
+          <nav class="site-footer-nav">
+            {{#if @site.secondary_navigation}}
+              {{navigation type="secondary"}}
+            {{else}}
+              <a href="{{@site.url}}">Latest Posts</a>
+              {{#if @site.facebook}}<a
+                  href="{{social_url type="facebook"}}"
+                  target="_blank"
+                  rel="noopener"
+                >Facebook</a>{{/if}}
+              {{#if @site.twitter}}<a
+                  href="{{social_url type="twitter"}}"
+                  target="_blank"
+                  rel="noopener"
+                >Twitter</a>{{/if}}
+            {{/if}}
+            <a
+              href="https://ghost.org"
+              target="_blank"
+              rel="noopener"
+              class="powered-by"
+            >Powered by Ghost</a>
+          </nav>
+        </div>
+      </footer>
 
     </div>
 
     {{ghost_foot}}
-</body>
+  </body>
 </html>

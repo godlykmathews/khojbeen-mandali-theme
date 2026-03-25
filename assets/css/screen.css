@@ -4,7 +4,7 @@
     --text-color: #333333;
     --accent-color: #007acc;
     --spacing-unit: 2rem;
-    --max-width: 800px;
+    --max-width: 80%; /* Increased from 800px to use more horizontal space */
 }
 
 body {
@@ -22,19 +22,62 @@ body {
     padding: var(--spacing-unit);
 }
 
-.site-header {
-    text-align: center;
+/* ==========================================================================
+   Hero Section (Cover Image | Description)
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 1.5);
+    margin-top: calc(var(--spacing-unit) * 1);
     margin-bottom: calc(var(--spacing-unit) * 3);
-    margin-top: calc(var(--spacing-unit) * 2);
 }
 
-.site-description {
-    font-size: 2.5rem;
+.hero-image-container {
+    flex: 1; /* Takes up half the space */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: block;
+}
+
+.hero-content {
+    flex: 1; /* Takes up the other half */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-description {
+    font-size: 2.2rem;
     font-weight: 300;
     color: #555;
     letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin: 0;
 }
 
+/* Responsive formatting for the hero section */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-description {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================================================
+   Post Feed & Cards
+   ========================================================================== */
 .post-feed {
     display: flex;
     flex-direction: column;
@@ -199,12 +242,7 @@ ul.nav li a:hover {
     color: var(--accent-color);
 }
 
-/* 
-  Dropdown CSS handling 
-  By default Ghost doesn't support nested {{navigation}}.
-  If you add a menu item called "Work" (which outputs .nav-work),
-  you can attach a dropdown structure to it via custom partials or JS.
-*/
+/* Dropdown Handling */
 .nav-work .dropdown-menu {
     display: none;
     position: absolute;
@@ -238,3 +276,68 @@ ul.nav li a:hover {
     margin: 0 auto 2rem auto;
 }
 
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer-global {
+    background-color: #f8f9fa;
+    border-top: 1px solid #eaeaea;
+    margin-top: calc(var(--spacing-unit) * 3);
+    padding: calc(var(--spacing-unit) * 2) 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.site-footer-global .inner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.site-footer-global .copyright a {
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer-global .copyright a:hover {
+    color: var(--accent-color);
+}
+
+.site-footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.site-footer-nav a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer-nav a:hover {
+    color: var(--accent-color);
+}
+
+.site-footer-nav .powered-by {
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .site-footer-global .inner-container {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .site-footer-nav {
+        justify-content: center;
+    }
+}
