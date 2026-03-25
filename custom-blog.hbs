@@ -27,11 +27,19 @@
     <div class="post-feed">
       {{#get "posts" include="tags,authors" limit="all"}}
         {{#foreach posts}}
-          <article class="post-card {{post_class}}">
+          <article
+            class="post-card {{post_class}}"
+            style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap;"
+          >
             {{#if feature_image}}
-              <a class="post-card-image-link" href="{{url}}">
+              <a
+                class="post-card-image-link"
+                href="{{url}}"
+                style="flex: 0 0 250px; max-width: 100%;"
+              >
                 <img
                   class="post-card-image"
+                  style="width: 100%; height: auto; object-fit: cover; border-radius: 8px; aspect-ratio: 16/9;"
                   srcset="{{img_url feature_image size="s"}} 300w,
                                         {{img_url feature_image size="m"}} 600w,
                                         {{img_url
@@ -46,16 +54,22 @@
               </a>
             {{/if}}
 
-            <div class="post-card-content">
+            <div class="post-card-content" style="flex: 1; min-width: 250px;">
               <header class="post-card-header">
                 {{#if primary_tag}}
-                  <span class="post-card-tags">{{primary_tag.name}}</span>
+                  <span
+                    class="post-card-tags"
+                    style="font-size: 0.85rem; text-transform: uppercase;"
+                  >{{primary_tag.name}}</span>
                 {{/if}}
-                <h2 class="post-card-title"><a href="{{url}}">{{title}}</a></h2>
+                <h2
+                  class="post-card-title"
+                  style="margin-top: 0.25rem; font-size: 1.5rem;"
+                ><a href="{{url}}">{{title}}</a></h2>
               </header>
 
-              <div class="post-card-excerpt">
-                <p>{{excerpt words="33"}}</p>
+              <div class="post-card-excerpt" style="margin-top: 0.5rem;">
+                <p>{{excerpt words="33"}} <a href="{{url}}">read more...</a></p>
               </div>
 
               <footer class="post-card-meta">
