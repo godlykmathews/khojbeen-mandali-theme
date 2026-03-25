@@ -1,0 +1,134 @@
+/* Base styles for Whitespace & Readability */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --accent-color: #007acc;
+    --spacing-unit: 2rem;
+    --max-width: 800px;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+.inner-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-unit);
+}
+
+.site-header {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.site-description {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #555;
+    letter-spacing: -0.02em;
+}
+
+.post-feed {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-unit) * 3);
+}
+
+.post-card {
+    border-bottom: 1px solid #eee;
+    padding-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.post-card:last-child {
+    border-bottom: none;
+}
+
+.post-card-image-link {
+    display: block;
+    margin-bottom: var(--spacing-unit);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.post-card-header {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.post-card-tags {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.post-card-title {
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.post-card-title a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-card-title a:hover {
+    color: var(--accent-color);
+}
+
+.post-card-excerpt {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: var(--spacing-unit);
+}
+
+.post-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.post-card-author a {
+    color: #555;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a {
+    color: var(--accent-color);
+}
+
+/* Ghost Image CSS classes */
+.kg-width-wide {
+    max-width: 1000px;
+}
+
+.kg-width-full {
+    max-width: 100%;
+}
+
+/* Base heading fonts */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
