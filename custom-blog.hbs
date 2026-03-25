@@ -25,7 +25,7 @@
     {{/post}}
 
     <div class="post-feed">
-      {{#get "posts" include="tags,authors" limit="all"}}
+      {{#get "posts" filter="tag:blog" include="tags,authors" limit="all"}}
         {{#foreach posts}}
           <article
             class="post-card {{post_class}}"
