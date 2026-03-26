@@ -658,3 +658,41 @@ html, body {
         padding: 0;
     }
 }
+
+/* ==========================================================================
+   Partners Section Horizontal Scroll (Mobile Only)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .partners-container {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 1.5rem; /* Space for the scrollbar */
+        margin-left: -1.5rem; /* Allow scrolling to the edge of the screen */
+        margin-right: -1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .partners-container > a {
+        scroll-snap-align: center;
+        flex: 0 0 auto;
+    }
+    
+    /* Customize the scrollbar to make it look like a sleek carousel */
+    .partners-container::-webkit-scrollbar {
+        height: 6px;
+    }
+    .partners-container::-webkit-scrollbar-track {
+        background: transparent; 
+    }
+    .partners-container::-webkit-scrollbar-thumb {
+        background: #d6e2c3; 
+        border-radius: 10px;
+    }
+    .partners-container::-webkit-scrollbar-thumb:hover {
+        background: #31724a; 
+    }
+}
