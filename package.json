@@ -8,14 +8,17 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Ghost User",
-    "email": "user@example.com",
-    "url": "https://example.com"
+    "name": "Godly K Mathews",
+    "email": "work.godlykm@gmail.com",
+    "url": "https://godly.is-a.dev"
   },
   "keywords": [
     "ghost",
     "theme",
-    "ghost-theme"
+    "ghost-theme",
+    "khojbeen",
+    "website",
+    "ngo"
   ],
   "config": {
     "posts_per_page": 5,
