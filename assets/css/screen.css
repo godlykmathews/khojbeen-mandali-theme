@@ -54,6 +54,8 @@ img, figure, video, iframe {
     background-color: #f1f8e9; /* The pale green background from the image */
     border-radius: 0;
     overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .hero-image-container {
@@ -76,7 +78,8 @@ img, figure, video, iframe {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem; /* Add padding to keep text away from edges */
+    padding: 3rem;
+    box-sizing: border-box; /* Add padding to keep text away from edges */
 }
 
 .hero-description {
@@ -123,6 +126,8 @@ img, figure, video, iframe {
     margin-bottom: var(--spacing-unit);
     border-radius: 8px;
     overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .post-card-image {
@@ -395,4 +400,261 @@ ul.nav li a:hover {
 .nav li.nav-current a {
     color: #252525;
     font-weight: bold;
+}
+
+/* ==========================================================================
+   Responsive Home Page Work Posts
+   ========================================================================== */
+.index-work-section {
+    margin: 0 auto 4rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+.work-posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.work-post {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.work-post-image {
+    flex: 1;
+    min-width: 300px;
+}
+.work-post-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #2b6142;
+}
+.work-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.work-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #111;
+}
+.work-excerpt {
+    margin: 0 0 1.6rem 0;
+    color: #444;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+.work-custom-excerpt {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.4rem;
+    color: #d63384;
+    font-weight: 700;
+    font-family: Times, serif;
+    font-style: italic;
+}
+.btn-learn-more {
+    display: inline-block;
+    background-color: #31724a;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* Even/Odd Layout Combinations */
+.work-post-even {
+    background-color: #e5ead3;
+    flex-direction: row;
+    text-align: right;
+}
+.work-post-even .work-content {
+    align-items: flex-end;
+}
+.work-post-odd {
+    background-color: transparent;
+    flex-direction: row-reverse;
+    text-align: left;
+}
+.work-post-odd .work-content {
+    align-items: flex-start;
+}
+
+/* ---------------------------------------------------------
+   Mobile & Tablet Safeties
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+    /* Make internal areas padded so they don't hit screen edge */
+    .partners-section, .hero-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* Convert work posts from side-by-side to stacked columns */
+    .work-post {
+        flex-direction: column !important; /* Forces columns */
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+        box-sizing: border-box;
+        text-align: left !important;
+    }
+    .work-post-image, .work-content {
+        width: 100% !important;
+        box-sizing: border-box; /* Take full width on small screens */
+    }
+    .work-post-even .work-content, .work-post-odd .work-content {
+        align-items: flex-start !important; /* Unify button left alignment */
+    }
+}
+
+/* ==========================================================================
+   Hero Section Enhancements
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f1f8e9; /* Light pleasant background matching your brand */
+    min-height: 60vh;
+    padding: 4rem 2rem;
+    gap: 4rem;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.hero-description {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: #111;
+    margin: 0;
+    font-weight: 800;
+}
+
+/* ---------------------------------------------------------
+   Hero Mobile Responsiveness
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column; /* Stack image and text vertically */
+        padding: 3rem 1.5rem;   /* Reduced padding */
+        gap: 2rem;
+        min-height: auto;       /* Eliminate awkward tall backgrounds */
+        text-align: center;
+    }
+
+    .hero-image-container {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-image {
+        max-height: 350px;      /* Smaller image on mobile */
+    }
+
+    .hero-content {
+        align-items: center;    /* Center text underneath */
+        text-align: center;
+    }
+
+    .hero-description {
+        font-size: 1.8rem;      /* Scaled down font size */
+    }
+}
+
+/* Quick fix for mobile box-sizing overflow globally */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Additional Mobile Overrides for Home Posts */
+@media (max-width: 900px) {
+    /* Reset minimum widths so elements can shrink fully */
+    .work-post-image, .work-content {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Scale down massive font sizes to fit nicely on narrow phones */
+    .work-title {
+        font-size: 1.5rem !important;
+        line-height: 1.3 !important;
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    .work-excerpt {
+        font-size: 1rem !important;
+    }
+
+    .work-custom-excerpt {
+        font-size: 1.15rem !important;
+    }
+    
+    /* Ensure the padding inside the card isn't too huge for small screens */
+    .work-post {
+        padding: 1.5rem !important;
+        overflow: hidden; /* Catch any stray overflowing text */
+    }
+}
+
+/* Fix for thick empty side margins on mobile */
+@media (max-width: 900px) {
+    .inner-container {
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* Remove extra margins on smaller screens specifically for work section */
+@media (max-width: 900px) {
+    .index-work-section {
+        padding: 0;
+    }
 }

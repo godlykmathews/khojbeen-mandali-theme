@@ -23,40 +23,33 @@
 
   <div class="inner-container">
 
-    <section
-      class="work-section"
-      style="margin: 0 auto 4rem auto; max-width: 1200px;"
-    >
+    <section class="work-section index-work-section">
       {{#get "posts" filter="tag:hash-home-posts" limit="100"}}
-        <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <div class="work-posts-container">
         {{#foreach posts}}
-          <article
-            class="work-post"
-            style="display: flex; gap: 4rem; align-items: center; padding: 3rem; flex-wrap: wrap; {{#if @even}}background-color: #e5ead3; flex-direction: row; text-align: right;{{else}}background-color: transparent; flex-direction: row-reverse; text-align: left;{{/if}}"
-          >
+          <article class="work-post {{#if @even}}work-post-even{{else}}work-post-odd{{/if}}">
             {{#if feature_image}}
-              <div style="flex: 1; min-width: 300px;">
+              <div class="work-post-image">
                 <img
                   src="{{img_url feature_image size="l"}}"
                   alt="{{title}}"
-                  style="width: 100%; height: auto; object-fit: cover; border: 2px solid #2b6142;"
                   loading="lazy"
                 />
               </div>
             {{/if}}
-            <div class="work-content" style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; {{#if @even}}align-items: flex-end;{{else}}align-items: flex-start;{{/if}}">
-              <h2 style="margin-top: 0; margin-bottom: 1rem; font-size: 2rem; color: #111;">{{title}}</h2>
+            <div class="work-content">
+              <h2 class="work-title">{{title}}</h2>
               
-              <div style="margin: 0 0 1.6rem 0; color: #444; font-size: 1.15rem; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+              <div class="work-excerpt">
                 {{content}}
               </div>
               
               {{#if custom_excerpt}}
-                <div style="margin: 0 0 1.5rem 0; font-size: 1.4rem; color: #d63384; font-weight: 700; font-family: Times, serif; font-style: italic;">
+                <div class="work-custom-excerpt">
                   {{custom_excerpt}}
                 </div>
               {{/if}}
-              <a href="{{#if canonical_url}}{{canonical_url}}{{else}}{{url}}{{/if}}" style="display: inline-block; background-color: #31724a; color: white; padding: 0.6rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0,0,0,0.15);">LEARN MORE</a>
+              <a href="{{#if canonical_url}}{{canonical_url}}{{else}}{{url}}{{/if}}" class="btn-learn-more">LEARN MORE</a>
             </div>
           </article>
         {{/foreach}}
