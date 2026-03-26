@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-image {
-    max-height: 140px;
+    max-height: 180px;
     width: auto;
     display: block;
     margin: 0 auto;
@@ -255,7 +255,7 @@ ul.nav li {
 ul.nav li a {
     text-decoration: none;
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.2s ease;
     padding: 0.5rem 0;
