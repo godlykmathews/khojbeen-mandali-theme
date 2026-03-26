@@ -29,7 +29,56 @@
             </a>
           </div>
 
+          <button class="mobile-menu-toggle" aria-label="Open Menu">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 12H21M3 6H21M3 18H21"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
           <div class="header-nav-container">
+            <div class="mobile-nav-header">
+              <a class="site-nav-logo mobile-nav-logo" href="{{@site.url}}">
+                {{#if @site.logo}}
+                  <img
+                    src="{{@site.logo}}"
+                    alt="{{@site.title}}"
+                    class="logo-image"
+                  />
+                {{else}}
+                  {{@site.title}}
+                {{/if}}
+              </a>
+              <button class="mobile-menu-close" aria-label="Close Menu">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 6L6 18M6 6L18 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
             {{#if @site.navigation}}
               {{navigation}}
             {{/if}}
@@ -43,5 +92,16 @@
     </div>
 
     {{ghost_foot}}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() { const
+      toggleButton = document.querySelector('.mobile-menu-toggle'); const
+      closeButton = document.querySelector('.mobile-menu-close'); const
+      navContainer = document.querySelector('.header-nav-container'); if
+      (toggleButton && closeButton && navContainer) {
+      toggleButton.addEventListener('click', function() {
+      document.body.classList.add('menu-open'); });
+      closeButton.addEventListener('click', function() {
+      document.body.classList.remove('menu-open'); }); } });
+    </script>
   </body>
 </html>
