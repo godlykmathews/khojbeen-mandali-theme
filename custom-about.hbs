@@ -1,90 +1,144 @@
 {{!< default}}
 
 {{#post}}
-<main id="main-content" class="site-main" style="min-height: 70vh; display: flex; align-items: center; justify-content: center; flex-direction: column; padding-bottom: 4rem;">
-    <div class="inner-container" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 2rem;">
-        <article class="post-single {{post_class}}">
-            <header class="post-single-header" style="margin-bottom: 2rem;">
-                {{#if feature_image}}
-                <figure class="post-single-image" style="margin-bottom: 2rem; text-align: center;">
-                    <img
-                        srcset="{{img_url feature_image size="s"}} 300w,
-                                {{img_url feature_image size="m"}} 600w,
-                                {{img_url feature_image size="l"}} 1000w"
-                        sizes="(min-width: 1000px) 1000px, 92vw"
-                        src="{{img_url feature_image size="l"}}"
-                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                        style="max-width: auto; height: 30vh; object-fit: cover; margin: 0 auto;"
-                    />
-                </figure>
-                {{/if}}
-                
-                {{#if custom_excerpt}}
-                    <p class="post-single-excerpt" style="font-size: 1.25rem; color: #555;">{{custom_excerpt}}</p>
-                {{/if}}
-            </header>
-
-            <div class="post-single-content gh-content" style="font-size: 1.1rem; line-height: 1.8;">
-                {{content}}
+  <main
+    id="main-content"
+    class="site-main"
+    style="min-height: 70vh; display: flex; align-items: center; justify-content: center; flex-direction: column; padding-bottom: 4rem;"
+  >
+    <div
+      class="inner-container"
+      style="width: 100%; max-width: 800px; margin: 0 auto; padding: 2rem;"
+    >
+      <article class="post-single {{post_class}}">
+        <header class="post-single-header" style="margin-bottom: 2rem;">
+          {{#if feature_image}}
+            <div style="flex: 1; min-width: 300px;">
+              <img
+                src="{{img_url feature_image size="l"}}"
+                alt="{{title}}"
+                style="width: 100%; height: 450px; object-fit: cover; border: 2px solid #2b6142;"
+                loading="lazy"
+              />
             </div>
-        </article>
+          {{/if}}
+
+          {{#if custom_excerpt}}
+            <p
+              class="post-single-excerpt"
+              style="font-size: 1.25rem; color: #555;"
+            >{{custom_excerpt}}</p>
+          {{/if}}
+        </header>
+
+        <div
+          class="post-single-content gh-content"
+          style="font-size: 1.2rem; line-height: 1.8;"
+        >
+          {{content}}
+        </div>
+      </article>
     </div>
 
     <!-- Team Sections -->
-    <div class="inner-container team-container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 2rem;">
-        
-        <!-- Strategic Team Section -->
-        <section class="strategic-team-section" style="margin-bottom: 4rem;">
-            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #111;">Strategic Team</h2>
-            {{#get "posts" filter="tag:hash-strategic-team" limit="100"}}
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                {{#foreach posts}}
-                <div class="team-card" style="background: #fdfdfd; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;">
-                    {{#if feature_image}}
-                    <img src="{{img_url feature_image size="m"}}" alt="{{title}}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem auto; display: block; border: 3px solid #31724a;" />
-                    {{/if}}
-                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem; color: #111;">{{title}}</h3>
-                    {{#if custom_excerpt}}
-                    <p class="tagline" style="color: #bc2578; font-weight: 600; margin: 0 0 1rem 0; font-size: 1.1rem;">{{custom_excerpt}}</p>
-                    {{/if}}
-                    <div class="team-content" style="font-size: 1rem; color: #444; line-height: 1.6; text-align: left;">
-                        {{content}}
-                    </div>
-                </div>
-                {{/foreach}}
-            </div>
-            {{/get}}
-        </section>
+    <div
+      class="inner-container team-container"
+      style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 2rem;"
+    >
 
-        <!-- Advisory Board Section -->
-        <section class="advisory-board-section">
-            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #111;">Advisory Board</h2>
-            {{#get "posts" filter="tag:hash-advisory-board" limit="100"}}
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start;">
-                {{#foreach posts}}
-                    {{#if feature_image}}
-                    <!-- Card layout for those with photos -->
-                    <div class="advisory-card" style="background: #fdfdfd; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; min-height: 200px;">
-                        <img src="{{img_url feature_image size="s"}}" alt="{{title}}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem auto; display: block; border: 2px solid #31724a;" />
-                        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; color: #111;">{{title}}</h3>
-                        {{#if custom_excerpt}}
-                        <p style="color: #bc2578; font-size: 0.95rem; font-weight: 500; margin: 0;">{{custom_excerpt}}</p>
-                        {{/if}}
-                    </div>
-                    {{else}}
-                    <!-- Text list item for those without photos -->
-                    <div class="advisory-list-item" style="padding: 1.5rem; border-left: 4px solid #bc2578; background: #fdfdfd; border-radius: 0 12px 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; min-height: 100px;">
-                        <h3 style="margin: 0; font-size: 1.2rem; color: #111;">{{title}}</h3>
-                        {{#if custom_excerpt}}
-                        <p style="color: #666; font-size: 0.95rem; margin: 0.5rem 0 0 0;">{{custom_excerpt}}</p>
-                        {{/if}}
-                    </div>
-                    {{/if}}
-                {{/foreach}}
-            </div>
-            {{/get}}
-        </section>
+      <!-- Strategic Team Section -->
+      <section class="strategic-team-section" style="margin-bottom: 4rem;">
+        <h2
+          style="text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #111;"
+        >Strategic Team</h2>
+        {{#get "posts" filter="tag:hash-strategic-team" limit="100"}}
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;"
+          >
+            {{#foreach posts}}
+              <div
+                class="team-card"
+                style="background: #fdfdfd; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center;"
+              >
+                {{#if feature_image}}
+                  <img
+                    src="{{img_url feature_image size="m"}}"
+                    alt="{{title}}"
+                    style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.5rem auto; display: block; border: 3px solid #31724a;"
+                  />
+                {{/if}}
+                <h3
+                  style="margin: 0 0 0.5rem 0; font-size: 1.5rem; color: #111;"
+                >{{title}}</h3>
+                {{#if custom_excerpt}}
+                  <p
+                    class="tagline"
+                    style="color: #bc2578; font-weight: 600; margin: 0 0 1rem 0; font-size: 1.1rem;"
+                  >{{custom_excerpt}}</p>
+                {{/if}}
+                <div
+                  class="team-content"
+                  style="font-size: 1rem; color: #444; line-height: 1.6; text-align: left;"
+                >
+                  {{content}}
+                </div>
+              </div>
+            {{/foreach}}
+          </div>
+        {{/get}}
+      </section>
+
+      <!-- Advisory Board Section -->
+      <section class="advisory-board-section">
+        <h2
+          style="text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #111;"
+        >Advisory Board</h2>
+        {{#get "posts" filter="tag:hash-advisory-board" limit="100"}}
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: start;"
+          >
+            {{#foreach posts}}
+              {{#if feature_image}}
+                <!-- Card layout for those with photos -->
+                <div
+                  class="advisory-card"
+                  style="background: #fdfdfd; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; min-height: 200px;"
+                >
+                  <img
+                    src="{{img_url feature_image size="s"}}"
+                    alt="{{title}}"
+                    style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem auto; display: block; border: 2px solid #31724a;"
+                  />
+                  <h3
+                    style="margin: 0 0 0.5rem 0; font-size: 1.2rem; color: #111;"
+                  >{{title}}</h3>
+                  {{#if custom_excerpt}}
+                    <p
+                      style="color: #bc2578; font-size: 0.95rem; font-weight: 500; margin: 0;"
+                    >{{custom_excerpt}}</p>
+                  {{/if}}
+                </div>
+              {{else}}
+                <!-- Text list item for those without photos -->
+                <div
+                  class="advisory-list-item"
+                  style="padding: 1.5rem; border-left: 4px solid #bc2578; background: #fdfdfd; border-radius: 0 12px 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; min-height: 100px;"
+                >
+                  <h3
+                    style="margin: 0; font-size: 1.2rem; color: #111;"
+                  >{{title}}</h3>
+                  {{#if custom_excerpt}}
+                    <p
+                      style="color: #666; font-size: 0.95rem; margin: 0.5rem 0 0 0;"
+                    >{{custom_excerpt}}</p>
+                  {{/if}}
+                </div>
+              {{/if}}
+            {{/foreach}}
+          </div>
+        {{/get}}
+      </section>
 
     </div>
-</main>
+  </main>
 {{/post}}

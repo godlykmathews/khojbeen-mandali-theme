@@ -391,3 +391,8 @@ ul.nav li a:hover {
         gap: 1rem;
     }
 }
+/* Active Navigation Link */
+.nav li.nav-current a {
+    color: #252525;
+    font-weight: bold;
+}
