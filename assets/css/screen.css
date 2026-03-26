@@ -43,6 +43,10 @@ img, figure, video, iframe {
     padding: var(--spacing-unit);
 }
 
+.inner-container a {
+    color: #d63384;
+}
+
 /* ==========================================================================
    Hero Section (Cover Image | Description)
    ========================================================================== */
@@ -470,7 +474,7 @@ ul.nav li a:hover {
 .btn-learn-more {
     display: inline-block;
     background-color: #31724a;
-    color: white;
+    color: white !important;
     padding: 0.6rem 1.5rem;
     border-radius: 25px;
     text-decoration: none;
