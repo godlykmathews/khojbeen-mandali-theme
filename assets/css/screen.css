@@ -1,5 +1,7 @@
 /* Base styles for Whitespace & Readability */
 :root {
+    --gh-font-body: 'Helvetica Neue', Arial, sans-serif;
+    --gh-font-heading: 'Helvetica Neue', Arial, sans-serif;
     --bg-color: #ffffff;
     --text-color: #333333;
     --accent-color: #007acc;

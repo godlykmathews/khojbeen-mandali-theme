@@ -30,7 +30,7 @@
         class="resources-grid" 
         style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem;"
       >
-        {{#get "posts" filter="tag:hash-resource" limit="all"}}
+        {{#get "posts" filter="tag:hash-resource" limit="100"}}
           {{#foreach posts}}
             <article 
               class="resource-card" 

@@ -27,7 +27,7 @@
       class="work-section"
       style="margin: 0 auto 4rem auto; max-width: 1200px;"
     >
-      {{#get "posts" filter="tag:hash-home-posts" limit="all"}}
+      {{#get "posts" filter="tag:hash-home-posts" limit="100"}}
         <div style="display: flex; flex-direction: column; gap: 2rem;">
         {{#foreach posts}}
           <article
@@ -67,7 +67,7 @@
     <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
       <h1 style="margin-bottom: 2rem;">Friends & Collaborators</h1>
       <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-        {{#get "posts" filter="tag:hash-partner" limit="all"}}
+        {{#get "posts" filter="tag:hash-partner" limit="100"}}
           {{#foreach posts}}
             {{#if feature_image}}
               <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" style="flex: 0 0 auto;">
@@ -87,7 +87,7 @@
     <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
       <h1 style="margin-bottom: 2rem;">Tech Partners</h1>
       <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-        {{#get "posts" filter="tag:hash-techpartner" limit="all"}}
+        {{#get "posts" filter="tag:hash-techpartner" limit="100"}}
           {{#foreach posts}}
             {{#if feature_image}}
               <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" style="flex: 0 0 auto;">
@@ -107,7 +107,7 @@
     <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
       <h1 style="margin-bottom: 2rem;">Patrons</h1>
       <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
-        {{#get "posts" filter="tag:hash-patron" limit="all"}}
+        {{#get "posts" filter="tag:hash-patron" limit="100"}}
           {{#foreach posts}}
             <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" style="flex: 0 0 auto; font-size: 1.6rem; color: #333; text-decoration: none;">
               {{#if feature_image}}
@@ -129,7 +129,7 @@
         <section class="partners-section featured-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
       <h1 style="margin-bottom: 2rem;">As Featured In</h1>
       <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
-        {{#get "posts" filter="tag:hash-featured" limit="all"}}
+        {{#get "posts" filter="tag:hash-featured" limit="100"}}
           {{#foreach posts}}
             {{#if feature_image}}
               <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" target="_blank" rel="noopener noreferrer" style="flex: 0 0 auto; transition: transform 0.2s ease, opacity 0.2s ease;">

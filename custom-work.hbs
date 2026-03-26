@@ -29,7 +29,7 @@
       class="work-section"
       style="margin: 0 auto 4rem auto; max-width: 1200px;"
     >
-      {{#get "posts" filter="tag:work" limit="all"}}
+      {{#get "posts" filter="tag:work" limit="100"}}
         <div style="display: flex; flex-direction: column; gap: 2rem;">
         {{#foreach posts}}
           <article
