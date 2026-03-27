@@ -5,10 +5,13 @@ A custom Ghost theme designed for the Khojbeen NGO website.
 ## Overview
 
 This is a Ghost theme built specifically for Khojbeen, featuring custom templates for different page types including about, blog, resources, and work sections.
+<img width="1916" height="894" alt="image" src="https://github.com/user-attachments/assets/02140229-63c5-4a88-9d60-3d7968f16931" />
 
 ## Requirements
 
 - Ghost >= 5.0.0
+- Node Version 22
+- nvm
 
 ## Installation
 
