@@ -38,7 +38,7 @@
               onmouseover="this.style.transform='translateY(-4px)'"
               onmouseout="this.style.transform='translateY(0)'"
             >
-              {{! We use the custom_excerpt to store the file link, if not present we fall back to the post URL }}
+              {{!-- We use the custom_excerpt to store the file link; if not present, we fall back to the post URL --}}
               <a 
                 href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" 
                 target="_blank" 
