@@ -95,6 +95,32 @@ img, figure, video, iframe {
     margin: 0;
 }
 
+.custom-posts-content {
+    font-size: 2.2rem;
+    font-weight: 400;   /* Make it bold like the image */
+    color: #000;        /* Make it black like the image */
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+.custom-posts-content-image-container {
+    flex: 1; /* Takes up half the space */
+    min-height: 40px;
+}
+
+.custom-posts-content-image {
+    width: 100%;
+    height: 100%;
+    max-height: none;   /* Remove max-height limit */
+    object-fit: cover;  /* Keep aspect ratio while filling container */
+    border-radius: 0;   /* Remove rounded corners */
+    box-shadow: none;   /* Remove shadow */
+    display: block;
+}
+
+
 /* Responsive formatting for the hero section */
 @media (max-width: 768px) {
     .hero-section {
@@ -102,7 +128,7 @@ img, figure, video, iframe {
         text-align: center;
     }
     
-    .hero-description {
+    .hero-description, .custom-posts-content {
         font-size: 1.8rem;
     }
 }
@@ -601,7 +627,7 @@ ul.nav li a:hover {
         text-align: center;
     }
 
-    .hero-description {
+    .hero-description, .custom-posts-content {
         font-size: 1.8rem;      /* Scaled down font size */
     }
 }
@@ -830,5 +856,32 @@ html, body {
         font-size: 1.2rem;
         font-weight: 400;
         color: #444;
+    }
+}
+
+/* Custom Home Hero Overrides */
+.custom-home-hero {
+    margin-bottom: 2rem;
+    position: relative;
+    width: 70vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .custom-home-hero {
+        width: 100vw;
+        padding-top: 1.5rem;   /* Reduce overall padding on mobile */
+        padding-bottom: 1.5rem;
+        gap: 1rem;             /* Reduce stack gap */
+    }
+    
+    .custom-home-hero .hero-content {
+        padding: 0 1rem;       /* Only padding on sides, let the parent padding handle vertical */
+    }
+    
+    .custom-home-hero .custom-posts-content {
+        font-size: 1.3rem;     /* Considerably reduce text size on mobile */
+        line-height: 1.3;
     }
 }
