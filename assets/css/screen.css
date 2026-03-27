@@ -542,10 +542,11 @@ ul.nav li a:hover {
     /* Convert work posts from side-by-side to stacked columns */
     .work-post {
         flex-direction: column !important; /* Forces columns */
-        gap: 2rem;
-        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        padding: 1.5rem 1.2rem;
         box-sizing: border-box;
         text-align: left !important;
+        margin-bottom: 1.5rem;
     }
     .work-post-image, .work-content {
         width: 100% !important;
@@ -553,6 +554,21 @@ ul.nav li a:hover {
     }
     .work-post-even .work-content, .work-post-odd .work-content {
         align-items: flex-start !important; /* Unify button left alignment */
+    }
+
+    .work-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .work-excerpt {
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .work-custom-excerpt {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
     }
 }
 
@@ -607,8 +623,8 @@ ul.nav li a:hover {
 @media (max-width: 900px) {
     .hero-section {
         flex-direction: column; /* Stack image and text vertically */
-        padding: 3rem 1.5rem;   /* Reduced padding */
-        gap: 2rem;
+        padding: 2rem 1.2rem;   /* Reduced padding */
+        gap: 1.5rem;
         min-height: auto;       /* Eliminate awkward tall backgrounds */
         text-align: center;
     }
@@ -616,19 +632,22 @@ ul.nav li a:hover {
     .hero-image-container {
         justify-content: center;
         width: 100%;
+        min-height: auto;
     }
 
     .hero-image {
-        max-height: 350px;      /* Smaller image on mobile */
+        max-height: 320px;      /* Smaller image on mobile */
     }
 
     .hero-content {
         align-items: center;    /* Center text underneath */
         text-align: center;
+        padding: 1.5rem 1rem;
     }
 
     .hero-description, .custom-posts-content {
-        font-size: 1.8rem;      /* Scaled down font size */
+        font-size: 1.5rem;      /* Scaled down font size */
+        line-height: 1.15;
     }
 }
 
@@ -653,24 +672,35 @@ html, body {
     
     /* Scale down massive font sizes to fit nicely on narrow phones */
     .work-title {
-        font-size: 1.5rem !important;
-        line-height: 1.3 !important;
+        font-size: 1.4rem !important;
+        line-height: 1.2 !important;
         word-break: break-word;
         hyphens: auto;
+        margin-top: 0 !important;
+        margin-bottom: 0.6rem !important;
     }
 
     .work-excerpt {
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 0.8rem !important;
+        line-height: 1.4;
     }
 
     .work-custom-excerpt {
-        font-size: 1.15rem !important;
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
     }
     
     /* Ensure the padding inside the card isn't too huge for small screens */
     .work-post {
-        padding: 1.5rem !important;
+        padding: 1.2rem !important;
         overflow: hidden; /* Catch any stray overflowing text */
+        gap: 1rem !important;
+    }
+
+    .btn-learn-more {
+        padding: 0.5rem 1.2rem !important;
+        font-size: 0.8rem !important;
     }
 }
 
@@ -678,8 +708,10 @@ html, body {
 @media (max-width: 900px) {
     .inner-container {
         max-width: 100%;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 }
 
@@ -687,6 +719,17 @@ html, body {
 @media (max-width: 900px) {
     .index-work-section {
         padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .partners-section {
+        margin: 1.5rem auto !important;
+        padding: 0 1rem;
+    }
+
+    .partners-section h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -700,11 +743,12 @@ html, body {
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        padding-bottom: 1.5rem; /* Space for the scrollbar */
-        margin-left: -1.5rem; /* Allow scrolling to the edge of the screen */
-        margin-right: -1.5rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-bottom: 1rem !important;
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        gap: 1rem !important;
     }
     
     .partners-container > a {
@@ -714,7 +758,7 @@ html, body {
     
     /* Customize the scrollbar to make it look like a sleek carousel */
     .partners-container::-webkit-scrollbar {
-        height: 6px;
+        height: 5px;
     }
     .partners-container::-webkit-scrollbar-track {
         background: transparent; 
@@ -772,7 +816,7 @@ html, body {
         left: 0;
         width: 100%;
         height: 100vh;
-        background-color: #f8f9fa; /* Matches reference light background */
+        background-color: #ffffff; /* Matches reference light background */
         z-index: 9999;
         display: flex;
         flex-direction: column;
@@ -871,17 +915,139 @@ html, body {
 @media (max-width: 768px) {
     .custom-home-hero {
         width: 100vw;
-        padding-top: 1.5rem;   /* Reduce overall padding on mobile */
-        padding-bottom: 1.5rem;
-        gap: 1rem;             /* Reduce stack gap */
+        padding-top: 1rem;   /* Reduce overall padding on mobile */
+        padding-bottom: 1rem;
+        gap: 0.5rem;             /* Reduce stack gap */
+        margin-bottom: 1.5rem;
     }
     
     .custom-home-hero .hero-content {
-        padding: 0 1rem;       /* Only padding on sides, let the parent padding handle vertical */
+        padding: 0.5rem 1rem;       /* Only padding on sides, minimal vertical */
     }
     
     .custom-home-hero .custom-posts-content {
-        font-size: 1.3rem;     /* Considerably reduce text size on mobile */
+        font-size: 1.1rem;     /* Considerably reduce text size on mobile */
+        line-height: 1.2;
+    }
+}
+
+/* ==========================================================================
+   ULTRA-MOBILE REFINEMENT: Aggressive reduction for phones (max-width: 600px)
+   ========================================================================== */
+@media (max-width: 600px) {
+    /* Hero Section - minimal spacing, compact text */
+    .hero-section {
+        padding: 1.2rem 0.8rem !important;
+        gap: 0.8rem !important;
+        min-height: auto;
+    }
+
+    .hero-image-container {
+        min-height: auto !important;
+    }
+
+    .hero-image {
+        max-height: 280px;
+    }
+
+    .hero-description, .custom-posts-content {
+        font-size: 1.3rem !important;
+        line-height: 1.1;
+        letter-spacing: 0;
+    }
+
+    .hero-content {
+        padding: 1rem 0.8rem !important;
+    }
+
+    /* Work Posts - ultra-compact spacing */
+    .work-post {
+        padding: 0.8rem !important;
+        gap: 0.8rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .work-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.4rem !important;
+        line-height: 1.1;
+    }
+
+    .work-excerpt {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.6rem !important;
         line-height: 1.3;
+        -webkit-line-clamp: 2 !important;
+    }
+
+    .work-custom-excerpt {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+
+    .btn-learn-more {
+        padding: 0.3rem 0.8rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Partners sections - aggressive margin reduction */
+    .partners-section {
+        margin: 1rem auto !important;
+        padding: 0.5rem !important;
+    }
+
+    .partners-section h1 {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    /* Inner container - ultra minimal padding */
+    .inner-container {
+        padding: 0.5rem 0.5rem !important;
+    }
+
+    /* Home posts - ultra compact */
+    .home-post {
+        margin-bottom: 0.8rem !important;
+    }
+
+    .home-posts-container {
+        margin: 0.8rem 0 !important;
+        gap: 0.5rem !important;
+    }
+
+    /* Custom home hero ultra compact */
+    .custom-home-hero {
+        width: 100vw;
+        padding: 0.8rem !important;
+        margin-bottom: 1rem;
+        gap: 0.3rem;
+    }
+
+    .custom-home-hero .hero-content {
+        padding: 0.4rem 0.8rem !important;
+    }
+
+    /* Footer - compact */
+    .site-footer-global {
+        padding: 1rem 0 !important;
+        margin-top: 1.5rem !important;
+    }
+
+    .site-footer-global .inner-container {
+        gap: 0.3rem;
+    }
+
+    .site-footer-nav {
+        gap: 0.3rem;
+    }
+
+    .site-footer-nav ul.nav {
+        gap: 0.5rem;
+    }
+
+    .site-footer-nav a,
+    .site-footer-nav ul.nav a {
+        font-size: 0.8rem;
     }
 }
