@@ -77,5 +77,65 @@
         {{/foreach}}
       {{/get}}
     </div>
+
+    {{! Newsletter Signup Section }}
+    {{#if @site.members_enabled}}
+      <section
+        class="newsletter-signup"
+        style="margin-top: 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); border-radius: 12px; text-align: center;"
+      >
+        <div
+          class="newsletter-content"
+          style="max-width: 500px; margin: 0 auto;"
+        >
+          <h2
+            style="font-size: 1.75rem; margin-bottom: 0.75rem; color: #1a1a1a;"
+          >Stay Updated</h2>
+          <p
+            style="color: #666; margin-bottom: 1.5rem; font-size: 1.1rem;"
+          >Subscribe to our newsletter and never miss a new post. Get the latest
+            articles delivered straight to your inbox.</p>
+
+          <form
+            data-members-form="subscribe"
+            style="display: flex; flex-direction: column; gap: 1rem; align-items: center;"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              data-members-email
+              style="width: 100%; max-width: 350px; padding: 0.875rem 1rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s ease;"
+            />
+            <button
+              type="submit"
+              style="padding: 0.875rem 2rem; background: #1a1a1a; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s ease;"
+            >
+              Subscribe
+            </button>
+
+            <div
+              class="message-success"
+              style="display: none; color: #15803d; font-weight: 500;"
+            >
+              ✓ Great! Check your inbox for a confirmation email.
+            </div>
+            <div
+              class="message-error"
+              style="display: none; color: #dc2626; font-weight: 500;"
+            >
+              Something went wrong. Please try again.
+            </div>
+            <div class="message-loading" style="display: none; color: #666;">
+              Subscribing...
+            </div>
+          </form>
+
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: #888;">No spam.
+            Unsubscribe anytime.</p>
+        </div>
+      </section>
+    {{/if}}
   </div>
 </main>
