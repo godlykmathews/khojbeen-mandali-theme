@@ -34,7 +34,7 @@
       </article>
 
       <!-- Additional About Content from Posts -->
-      {{#get "posts" filter="tag:hash-about-tools" limit="all" order="published_at asc"}}
+      {{#get "posts" filter="tag:hash-about-tools" limit="99" order="published_at asc"}}
         {{#if posts}}
           <section class="mt-14 space-y-24">
             {{#foreach posts}}

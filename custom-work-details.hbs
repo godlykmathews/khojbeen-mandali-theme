@@ -34,7 +34,7 @@
 
       <!-- Dynamic Wireframe Sections (Sub-posts via Internal Tags) -->
       <section class="work-blocks-container max-w-7xl mx-auto px-6 pb-24 space-y-16 md:space-y-24 [&>.text-only-block+.text-only-block]:!mt-6 md:[&>.text-only-block+.text-only-block]:!mt-8">
-        {{#get "posts" filter="tag:hash-{{slug}}" limit="all" order="published_at asc"}}
+        {{#get "posts" filter="tag:hash-{{slug}}" limit="99" order="published_at asc"}}
           {{#foreach posts}}
             
             {{#if feature_image}}

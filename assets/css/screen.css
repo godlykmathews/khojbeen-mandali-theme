@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Lora:ital,wght@0,400;0,600;1,600&family=Nunito:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --font-body: 'Nunito', sans-serif;
-  --font-display: 'Baloo 2', cursive;
+  --font-body: var(--gh-font-body, 'Nunito', sans-serif);
+  --font-display: var(--gh-font-heading, 'Baloo 2', cursive);
   --font-serif: 'Lora', serif;
   --max-content-width: 1200px;
 
