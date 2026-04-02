@@ -1,0 +1,69 @@
+{{!< default}}
+
+{{#post}}
+  <main id="main-content" class="site-main donation-page">
+    <div class="inner-container donation-inner max-w-6xl mx-auto px-4 sm:px-6">
+      <section class="donation-hero">
+        <div class="donation-hero-content">
+          <p class="donation-kicker">Support Khojbeen Mandali</p>
+          <h1 class="donation-title">{{title}}</h1>
+          {{#if custom_excerpt}}
+            <p class="donation-summary">{{custom_excerpt}}</p>
+          {{/if}}
+          <a class="donation-cta" href="#donation-options">Donate now</a>
+        </div>
+
+        {{#if feature_image}}
+          <div class="donation-hero-image-wrap">
+            <img
+              src="{{img_url feature_image size="l"}}"
+              alt="{{title}}"
+              class="donation-hero-image"
+              loading="lazy"
+            />
+          </div>
+        {{/if}}
+      </section>
+
+      <article class="donation-content gh-content">
+        {{content}}
+      </article>
+
+      <section id="donation-options" class="donation-methods">
+        <div class="section-head">
+          <h2>Ways To Contribute</h2>
+        </div>
+
+        <div class="donation-method-grid">
+          {{#get "posts" filter="tag:hash-donation-option" limit="100"}}
+            {{#foreach posts}}
+              <article class="donation-method-card">
+                <h3 class="donation-method-title">{{title}}</h3>
+                {{#if custom_excerpt}}
+                  <p class="donation-method-meta">{{custom_excerpt}}</p>
+                {{/if}}
+                <div class="donation-method-body gh-content">
+                  {{content}}
+                </div>
+                {{#if canonical_url}}
+                  <a href="{{canonical_url}}" class="donation-method-link" target="_blank" rel="noopener noreferrer">Contribute</a>
+                {{/if}}
+              </article>
+            {{else}}
+              <article class="donation-method-card">
+                <h3 class="donation-method-title">Online Transfer</h3>
+                <p class="donation-method-meta">Add UPI, bank details, or payment links here through Ghost Admin.</p>
+                <p class="donation-method-body">Create posts tagged with <strong>#donation-option</strong> to manage all donation options without editing code.</p>
+              </article>
+              <article class="donation-method-card">
+                <h3 class="donation-method-title">In-kind Support</h3>
+                <p class="donation-method-meta">Books, art material, and learning resources are always welcome.</p>
+                <p class="donation-method-body">Use this section for volunteer drives, equipment requests, and partner sponsorships.</p>
+              </article>
+            {{/foreach}}
+          {{/get}}
+        </div>
+      </section>
+    </div>
+  </main>
+{{/post}}

@@ -1,16 +1,17 @@
 {{!< default}}
 
-<main id="main-content" class="site-main">
-  {{! HERO SECTION: Cover Image | Description }}
-  <section class="hero-section">
+<main id="main-content" class="site-main home-page">
+  <section class="hero-section hero-section-home">
     {{#if @site.cover_image}}
       <div class="hero-image-container">
-        <img
-          class="hero-image"
-          src="{{@site.cover_image}}"
-          alt="{{@site.title}}"
-          loading="lazy"
-        />
+        <div class="hero-image-frame">
+          <img
+            class="hero-image"
+            src="{{@site.cover_image}}"
+            alt="{{@site.title}}"
+            loading="lazy"
+          />
+        </div>
       </div>
     {{/if}}
 
@@ -21,44 +22,45 @@
     </div>
   </section>
 
-  <div class="inner-container">
-
+  <div class="inner-container home-inner-container">
     <section class="work-section index-work-section">
       {{#get "posts" filter="tag:hash-home-work-posts" limit="100"}}
         <div class="work-posts-container">
-        {{#foreach posts}}
-          <article class="work-post {{#if @even}}work-post-even{{else}}work-post-odd{{/if}}">
-            {{#if feature_image}}
-              <div class="work-post-image">
-                <img
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  loading="lazy"
-                />
-              </div>
-            {{/if}}
-            <div class="work-content">
-              <h2 class="work-title">{{title}}</h2>
-              
-              <div class="work-excerpt">
-                {{content}}
-              </div>
-              
-              {{#if custom_excerpt}}
-                <div class="work-custom-excerpt">
-                  {{custom_excerpt}}
+          {{#foreach posts}}
+            <article class="work-post {{#if @even}}work-post-even{{else}}work-post-odd{{/if}}">
+              {{#if feature_image}}
+                <div class="work-post-image">
+                  <img
+                    src="{{img_url feature_image size="l"}}"
+                    alt="{{title}}"
+                    loading="lazy"
+                  />
                 </div>
               {{/if}}
-              <a href="{{#if canonical_url}}{{canonical_url}}{{else}}{{url}}{{/if}}" class="btn-learn-more">LEARN MORE</a>
-            </div>
-          </article>
-        {{/foreach}}
+              <div class="work-content">
+                <h2 class="work-title">{{title}}</h2>
+
+                <div class="work-excerpt">
+                  {{content}}
+                </div>
+
+                {{#if custom_excerpt}}
+                  <div class="work-custom-excerpt">
+                    {{custom_excerpt}}
+                  </div>
+                {{/if}}
+                <a href="{{#if canonical_url}}{{canonical_url}}{{else}}{{url}}{{/if}}" class="btn-learn-more">Learn More</a>
+              </div>
+            </article>
+          {{else}}
+            <p class="section-empty-note">Fresh programs are on the way. Please check back soon.</p>
+          {{/foreach}}
         </div>
       {{/get}}
     </section>
 
     {{#get "posts" filter="tag:hash-home-posts" limit="100"}}
-      <div class="home-posts-container" style="margin: 2rem 0; text-align: center;">
+      <div class="home-posts-container">
         {{#foreach posts}}
           {{#if custom_excerpt}}
             <section class="hero-section custom-home-hero">
@@ -66,10 +68,9 @@
                 <div class="custom-posts-content-image-container">
                   <img
                     class="custom-posts-content-image"
-                    src="{{img_url feature_image}}"
+                    src="{{img_url feature_image size="l"}}"
                     alt="{{title}}"
                     loading="lazy"
-                    style="border: 2px solid #0a150f;"
                   />
                 </div>
               {{/if}}
@@ -78,9 +79,9 @@
               </div>
             </section>
           {{else}}
-            <article class="home-post" style="margin-bottom: 2rem;">
+            <article class="home-post">
               {{#if feature_image}}
-                <img src="{{img_url feature_image size="l"}}" alt="{{title}}" loading="lazy" style="max-width: 100%; height: 45vh; object-fit: cover; border: 2px solid #252525;" />
+                <img src="{{img_url feature_image size="l"}}" alt="{{title}}" loading="lazy" />
               {{/if}}
             </article>
           {{/if}}
@@ -88,87 +89,106 @@
       </div>
     {{/get}}
 
-    <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
-      <h1 style="margin-bottom: 2rem;">Friends & Collaborators</h1>
-      <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+    <section class="partners-section logo-carousel-section" data-carousel-group>
+      <div class="section-head">
+        <h2>Friends &amp; Collaborators</h2>
+      </div>
+      <div class="partners-container logo-carousel-track" id="friends-carousel" tabindex="0" aria-label="Friends and Collaborators logos">
         {{#get "posts" filter="tag:hash-partner" limit="100"}}
           {{#foreach posts}}
             {{#if feature_image}}
-              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" style="flex: 0 0 auto;">
+              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" class="logo-item logo-item-friends">
                 <img
-                  src="{{img_url feature_image size="s"}}"
+                  src="{{img_url feature_image size="m"}}"
                   alt="{{title}}"
-                  style="width: auto; height: 110px; object-fit: cover;"
+                  class="logo-item-image"
                   loading="lazy"
                 />
               </a>
+            {{else}}
+              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" class="logo-item logo-item-text">{{title}}</a>
             {{/if}}
+          {{else}}
+            <p class="section-empty-note">Collaborator logos will appear here soon.</p>
           {{/foreach}}
         {{/get}}
       </div>
     </section>
 
-    <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
-      <h1 style="margin-bottom: 2rem;">Tech Partners</h1>
-      <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+    <section class="partners-section logo-carousel-section" data-carousel-group>
+      <div class="section-head">
+        <h2>Tech Partners</h2>
+      </div>
+      <div class="partners-container logo-carousel-track" id="tech-carousel" tabindex="0" aria-label="Tech Partners logos">
         {{#get "posts" filter="tag:hash-techpartner" limit="100"}}
           {{#foreach posts}}
             {{#if feature_image}}
-              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" style="flex: 0 0 auto;">
+              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" class="logo-item logo-item-tech">
                 <img
-                  src="{{img_url feature_image size="s"}}"
+                  src="{{img_url feature_image size="m"}}"
                   alt="{{title}}"
-                  style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"
+                  class="logo-item-image"
                   loading="lazy"
                 />
               </a>
+            {{else}}
+              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" class="logo-item logo-item-text">{{title}}</a>
             {{/if}}
+          {{else}}
+            <p class="section-empty-note">Tech partner logos will appear here soon.</p>
           {{/foreach}}
         {{/get}}
       </div>
     </section>
 
-    <section class="partners-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
-      <h1 style="margin-bottom: 2rem;">Patrons</h1>
-      <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+    <section class="partners-section logo-carousel-section" data-carousel-group>
+      <div class="section-head">
+        <h2>Patrons</h2>
+      </div>
+      <div class="partners-container logo-carousel-track" id="patron-carousel" tabindex="0" aria-label="Patrons list">
         {{#get "posts" filter="tag:hash-patron" limit="100"}}
           {{#foreach posts}}
-            <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" style="flex: 0 0 auto; font-size: 1.6rem; color: #333; text-decoration: none;">
+            <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" class="logo-item logo-item-patron">
               {{#if feature_image}}
                 <img
-                  src="{{img_url feature_image size="s"}}"
+                  src="{{img_url feature_image size="m"}}"
                   alt="{{title}}"
-                  style="width: auto; height: 100px; object-fit: contain;"
+                  class="logo-item-image"
                   loading="lazy"
                 />
               {{else}}
-                {{title}}
+                <span class="patron-text">{{title}}</span>
               {{/if}}
             </a>
+          {{else}}
+            <p class="section-empty-note">Patron names and logos will appear here soon.</p>
           {{/foreach}}
         {{/get}}
       </div>
     </section>
 
-        <section class="partners-section featured-section" style="margin: 0 auto 4rem auto; max-width: 1200px; text-align: center;">
-      <h1 style="margin-bottom: 2rem;">As Featured In</h1>
-      <div class="partners-container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+    <section class="partners-section logo-carousel-section featured-section" data-carousel-group>
+      <div class="section-head">
+        <h2>As Featured In</h2>
+      </div>
+      <div class="partners-container logo-carousel-track" id="featured-carousel" tabindex="0" aria-label="As Featured In logos">
         {{#get "posts" filter="tag:hash-featured" limit="100"}}
           {{#foreach posts}}
             {{#if feature_image}}
-              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" target="_blank" rel="noopener noreferrer" style="flex: 0 0 auto; transition: transform 0.2s ease, opacity 0.2s ease;">
+              <a href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" title="{{title}}" class="logo-item logo-item-featured" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="{{img_url feature_image size="s"}}"
+                  src="{{img_url feature_image size="m"}}"
                   alt="{{title}}"
-                  style="width: auto; height: 90px; object-fit: contain;"
+                  class="logo-item-image"
                   loading="lazy"
                 />
               </a>
             {{/if}}
+          {{else}}
+            <p class="section-empty-note">Media mentions will appear here soon.</p>
           {{/foreach}}
         {{/get}}
       </div>
     </section>
-
   </div>
 </main>

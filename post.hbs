@@ -1,30 +1,25 @@
 {{!< default}}
 
 {{#post}}
-<main id="main-content" class="site-main" style="padding: 4rem 0;">
-    <div class="inner-container" style="max-width: 800px; margin: 0 auto;">
-        <article class="post-single {{post_class}}">
-            
-            <header class="post-single-header" style="text-align: center; margin-bottom: 3rem;">                
-                <h1 class="post-single-title" style="font-size: 3rem; margin-bottom: 1rem; line-height: 1.2;">{{title}}</h1>
-                
+<main id="main-content" class="site-main post-page">
+    <div class="inner-container post-inner">
+        <article class="post-single post-page-article {{post_class}}">
+            <header class="post-single-header post-page-header">
+                <h1 class="post-single-title">{{title}}</h1>
+
                 {{#if custom_excerpt}}
-                    <p class="post-single-excerpt" style="font-size: 1.3rem; color: #666; margin-bottom: 1.5rem; font-weight: 300;">{{custom_excerpt}}</p>
+                    <p class="post-single-excerpt">{{custom_excerpt}}</p>
                 {{/if}}
-                
-                <div class="post-meta" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; font-size: 0.95rem; color: #888;">
-                    {{#if primary_author}}
-                        <span class="author-name">{{primary_author.name}}</span>
-                        <span class="bull">&bull;</span>
-                    {{/if}}
+
+                <div class="post-meta">
                     <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                    <span class="bull">&bull;</span> 
+                    <span class="bull">&bull;</span>
                     <span class="reading-time">{{reading_time}}</span>
                 </div>
             </header>
-            
+
             {{#if feature_image}}
-            <figure class="post-single-image" style="margin: 0 0 3rem 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <figure class="post-single-image post-feature-image-wrap">
                 <img
                     srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 600w,
@@ -33,20 +28,18 @@
                     sizes="(min-width: 1400px) 1400px, 92vw"
                     src="{{img_url feature_image size="xl"}}"
                     alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                    style="width: 100%; height: auto; display: block;"
                 />
                 {{#if feature_image_caption}}
-                    <figcaption style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 0.8rem;">
+                    <figcaption class="post-feature-caption">
                         {{feature_image_caption}}
                     </figcaption>
                 {{/if}}
             </figure>
             {{/if}}
 
-            <div class="post-single-content gh-content" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-color);">
+            <div class="post-single-content gh-content">
                 {{content}}
             </div>
-            
         </article>
     </div>
 </main>

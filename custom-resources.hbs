@@ -1,75 +1,59 @@
 {{!< default}}
 
 <main id="main-content" class="site-main">
-  <div class="inner-container" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+  <div class="inner-container resources-inner">
     {{#post}}
-      <header
-        class="page-header"
-        style="text-align: center; margin-bottom: 4rem; padding-top: 2rem;"
-      >
-        <h1
-          class="page-title"
-          style="font-size: 3rem; margin-bottom: 0.5rem;"
-        >{{title}}</h1>
+      <header class="page-header">
+        <h1 class="page-title">{{title}}</h1>
         
         {{#if custom_excerpt}}
-          <p
-            class="page-description"
-            style="font-size: 1.2rem; color: #666;"
-          >{{custom_excerpt}}</p>
+          <p class="page-description">{{custom_excerpt}}</p>
         {{/if}}
       </header>
 
-      <div class="page-content" style="margin-bottom: 3rem;">
+      <div class="page-content resources-page-content">
         {{content}}
       </div>
     {{/post}}
 
     <section class="resources-section">
-      <div 
-        class="resources-grid" 
-        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem;"
-      >
+      <div class="resources-grid">
         {{#get "posts" filter="tag:hash-resource" limit="100"}}
           {{#foreach posts}}
-            <article 
-              class="resource-card" 
-              style="border: 1px solid #efefef; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s;"
-              onmouseover="this.style.transform='translateY(-4px)'"
-              onmouseout="this.style.transform='translateY(0)'"
-            >
+            <article class="resource-card">
               {{!-- We use the custom_excerpt to store the file link; if not present, we fall back to the post URL --}}
               <a 
+                class="resource-link"
                 href="{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{url}}{{/if}}" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                style="display: block; text-decoration: none; color: inherit;"
                 {{#if custom_excerpt}}download{{/if}}
               >
-                <div class="resource-image-container" style="aspect-ratio: 4/3; background: #f4f4f4; width: 100%; border-bottom: 1px solid #eee;">
+                <div class="resource-image-container">
                   {{#if feature_image}}
                     <img
                       src="{{img_url feature_image size="m"}}"
                       alt="{{title}}"
-                      style="width: 100%; height: 100%; object-fit: contain;"
+                      class="resource-image"
                       loading="lazy"
                     />
                   {{else}}
-                    <!-- Placeholder if no thumbnail is set -->
-                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #ccc;">
+                    <div class="resource-placeholder">
                       <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
                   {{/if}}
                 </div>
-                <div class="resource-content" style="padding: 1.25rem;">
-                  <h3 style="margin: 0 0 0.5rem 0; font-size: 1.1rem; line-height: 1.4;">{{title}}</h3>
-                  <div class="resource-meta" style="font-size: 0.85rem; color: #0066cc; display: flex; align-items: center; gap: 0.5rem; font-weight: 500;">
+                <div class="resource-content">
+                  <h3 class="resource-title">{{title}}</h3>
+                  <div class="resource-meta">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Download
                   </div>
                 </div>
               </a>
             </article>
+          {{else}}
+            <p class="section-empty-note">New resources will appear here soon.</p>
           {{/foreach}}
         {{/get}}
       </div>
