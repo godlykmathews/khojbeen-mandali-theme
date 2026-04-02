@@ -44,7 +44,7 @@ This project was developed during the **OASIS Hackathon** organized by the **Tec
 Thanks to the dynamic integration, you no longer need to edit the code to change vital site information!
 
 **1. Contact Information & Credits**
-Navigate to **Settings** > **Design & Branding** > **Site Wide**. Here you can change:
+Navigate to **Settings** > **Design & Branding** > **Theme**. Here you can change:
 - **Illustrations Author** (Name of the artist)
 - **Illustrations Link** (URL to the artist's portfolio/LinkedIn)
 - **Contact Phone** & **Contact Person**
