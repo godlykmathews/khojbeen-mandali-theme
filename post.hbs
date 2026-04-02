@@ -1,46 +1,66 @@
 {{!< default}}
 
 {{#post}}
-<main id="main-content" class="site-main post-page">
-    <div class="inner-container post-inner">
-        <article class="post-single post-page-article {{post_class}}">
-            <header class="post-single-header post-page-header">
-                <h1 class="post-single-title">{{title}}</h1>
+<main class="site-main bg-white pt-16 pb-24 md:pt-24 md:pb-32">
+    <article class="article {{post_class}}">
+        
+        <!-- Header Section: Classic Medium-style Centered Layout -->
+        <header class="article-header max-w-3xl mx-auto px-6 mb-12">
+            <h1 class="article-title text-4xl md:text-5xl lg:text-[3.5rem] font-black text-gray-900 font-['Baloo_2',_cursive] leading-[1.15] mb-6">
+                {{title}}
+            </h1>
 
-                {{#if custom_excerpt}}
-                    <p class="post-single-excerpt">{{custom_excerpt}}</p>
-                {{/if}}
-
-                <div class="post-meta">
-                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
-                    <span class="bull">&bull;</span>
-                    <span class="reading-time">{{reading_time}}</span>
-                </div>
-            </header>
-
-            {{#if feature_image}}
-            <figure class="post-single-image post-feature-image-wrap">
-                <img
-                    srcset="{{img_url feature_image size="s"}} 300w,
-                            {{img_url feature_image size="m"}} 600w,
-                            {{img_url feature_image size="l"}} 1000w,
-                            {{img_url feature_image size="xl"}} 2000w"
-                    sizes="(min-width: 1400px) 1400px, 92vw"
-                    src="{{img_url feature_image size="xl"}}"
-                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                />
-                {{#if feature_image_caption}}
-                    <figcaption class="post-feature-caption">
-                        {{feature_image_caption}}
-                    </figcaption>
-                {{/if}}
-            </figure>
+            {{#if custom_excerpt}}
+                <p class="article-excerpt text-xl md:text-2xl text-gray-500 font-light leading-snug mb-8">{{custom_excerpt}}</p>
             {{/if}}
 
-            <div class="post-single-content gh-content">
-                {{content}}
+            <div class="post-meta flex flex-wrap items-center gap-3 text-sm font-medium tracking-wide text-gray-500 pb-8 border-b border-gray-100">
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                <span class="bull text-gray-300">&bull;</span>
+                <span class="reading-time">{{reading_time}}</span>
             </div>
-        </article>
-    </div>
+        </header>
+
+        <!-- Featured Image: Spans wider than the text column -->
+        {{#if feature_image}}
+        <figure class="article-image max-w-5xl mx-auto px-6 mb-16">
+            <img
+                srcset="{{img_url feature_image size="s"}} 300w,
+                        {{img_url feature_image size="m"}} 600w,
+                        {{img_url feature_image size="l"}} 1000w,
+                        {{img_url feature_image size="xl"}} 2000w"
+                sizes="(min-width: 1024px) 1024px, 100vw"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                class="w-full h-auto max-h-[70vh] object-cover rounded-xl"
+            />
+            {{#if feature_image_caption}}
+                <figcaption class="text-center text-sm text-gray-500 mt-4 font-serif italic">
+                    {{feature_image_caption}}
+                </figcaption>
+            {{/if}}
+        </figure>
+        {{/if}}
+
+        <!-- Main Content Area (Medium Theme Replica) -->
+        <!-- 
+            We stripped Tailwind typography plugins to prevent it from crushing embeds. 
+            We use raw Tailwind selectors specifically ensuring Ghost's .kg-embed-card and iframes pull full width. 
+        -->
+        <div class="gh-content max-w-3xl mx-auto px-6 font-['Lato',_sans-serif] text-lg md:text-xl text-gray-800 leading-[1.8]
+            [&_p]:mb-8 
+            [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:font-['Baloo_2'] [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:text-gray-900
+            [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:font-['Baloo_2'] [&_h3]:mt-12 [&_h3]:mb-4 [&_h3]:text-gray-900
+            [&_a]:text-blue-600 hover:[&_a]:text-blue-800 hover:[&_a]:underline 
+            [&_blockquote]:border-l-4 [&_blockquote]:border-gray-900 [&_blockquote]:pl-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:text-2xl [&_blockquote]:font-serif [&_blockquote]:text-gray-600
+            [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-8 [&_li]:mb-2
+            [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-8 [&_li]:mb-2
+            [&_img]:w-full [&_img]:rounded-lg [&_img]:my-10
+            [&_.kg-card]:my-12 [&_.kg-card]:w-full
+            [&_.kg-embed-card]:w-full [&_iframe]:w-full [&_iframe]:aspect-video [&_iframe]:rounded-lg">
+            {{content}}
+        </div>
+        
+    </article>
 </main>
 {{/post}}
