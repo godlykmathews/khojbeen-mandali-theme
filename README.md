@@ -27,7 +27,7 @@ This project was developed during the **OASIS Hackathon** organized by the **Tec
    Download or clone this theme inside your Ghost installation's themes directory:
    ```bash
    cd content/themes
-   git clone <repository_url> khojbeen-website
+   git clone https://github.com/godlykmathews/khojbeen-mandali-theme/
    ```
 
 2. **Restart Ghost**
