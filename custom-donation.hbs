@@ -24,20 +24,21 @@
           </div>
         {{/if}}
       </section>
-
+        {{#if content}}
       <article class="donation-content gh-content">
         {{content}}
       </article>
+      {{/if}}
 
       <section id="donation-options" class="donation-methods">
         <div class="section-head">
           <h2>Ways To Contribute</h2>
         </div>
 
-        <div class="donation-method-grid">
-          {{#get "posts" filter="tag:hash-donation-option" limit="100"}}
+        <div class="donation-method-grid" role="list">
+          {{#get "posts" filter="tag:hash-donation-method" limit="100"}}
             {{#foreach posts}}
-              <article class="donation-method-card">
+              <article class="donation-method-card" role="listitem">
                 <h3 class="donation-method-title">{{title}}</h3>
                 {{#if custom_excerpt}}
                   <p class="donation-method-meta">{{custom_excerpt}}</p>
@@ -46,19 +47,14 @@
                   {{content}}
                 </div>
                 {{#if canonical_url}}
-                  <a href="{{canonical_url}}" class="donation-method-link" target="_blank" rel="noopener noreferrer">Contribute</a>
+                  <a href="{{canonical_url}}" class="donation-method-link" target="_blank" rel="noopener noreferrer" aria-label="Contribute via {{title}}">Contribute</a>
                 {{/if}}
               </article>
             {{else}}
-              <article class="donation-method-card">
-                <h3 class="donation-method-title">Online Transfer</h3>
-                <p class="donation-method-meta">Add UPI, bank details, or payment links here through Ghost Admin.</p>
-                <p class="donation-method-body">Create posts tagged with <strong>#donation-option</strong> to manage all donation options without editing code.</p>
-              </article>
-              <article class="donation-method-card">
-                <h3 class="donation-method-title">In-kind Support</h3>
-                <p class="donation-method-meta">Books, art material, and learning resources are always welcome.</p>
-                <p class="donation-method-body">Use this section for volunteer drives, equipment requests, and partner sponsorships.</p>
+              <article class="donation-method-card" role="listitem">
+                <h3 class="donation-method-title">Coming Soon</h3>
+                <p class="donation-method-meta">Thank you for your interest in supporting us!</p>
+                <p class="donation-method-body">We are currently setting up our donation channels. Please check back soon, or contact us directly if you wish to contribute in the meantime.</p>
               </article>
             {{/foreach}}
           {{/get}}

@@ -59,7 +59,44 @@ To change basic information about your website:
    - **Publication icon / Logo**: Upload your brand logos here.
    - **Social Accounts**: Link your Facebook, Twitter/X, etc.
 
-## 6. Tips for Success
+## 6. Understanding and Using Tags
+
+Tags are critical in this theme as they dictate **where** your content (posts, team members, resources) shows up on the website. 
+
+### Public vs. Internal Tags
+- **Public Tags** (e.g., `blog`, `work`): Visible to visitors on your site. Just type the word in the tags field.
+- **Internal Tags** (e.g., `#mentors`, `#partner`): Used for organizing content behind the scenes. They begin with a hashtag (`#`) and do not show up publicly to visitors, but the theme uses them to place content securely in the right sections.
+
+### Complete Tag Directory
+
+Here is the complete list of tags used by the Khojbeen theme and where they belong:
+
+#### **Homepage Tags (Internal)**
+Use these tags on posts/items you want to appear on the front page:
+- **`#home-posts`**: General blog posts or news items you want featured on the homepage.
+- **`#home-work-posts`**: Portfolio or project highlights you want featured on the homepage's work section.
+- **`#partner`**: Organizations/logos to display in the "Partners" section.
+- **`#techpartner`**: Organizations/logos to display in the "Tech Partners" section.
+- **`#patron`**: Individuals/entities to display in the "Patrons" section.
+
+#### **About Page Tags (Internal)**
+Use these tags to populate the sections of the "About Us" page:
+- **`#strategic-team`**: Add to a post representing a team member to show them in the "Strategic Team" section.
+- **`#mentors`**: Add to a post representing a mentor to show them in the "Mentors" section.
+- **`#about-tools`**: Add to posts/items detailing tools or approaches used by the organization.
+
+#### **Main Pages Tags (Public & Internal)**
+- **`blog`** *(Public)*: Add this to any standard news or article post to have it appear on the main Blog page.
+- **`work`** *(Public)*: Add to case studies or project posts to have them listed on the main Work/Portfolio page.
+- **`#resource`** *(Internal)*: Add to posts that contain downloadable materials or links to appear on the Resources page.
+- **`#donation-method`** *(Internal)*: Add to posts defining donation tiers or options to appear on the Donation page.
+
+#### **Dynamic Work Details Tag (Internal)**
+- **`#<page-slug>`**: Used specifically for the "Custom Work Details" template. If you have a main work page with the URL slug `my-project`, you can create sub-posts and tag them with `#my-project`. The theme will automatically pull those tagged posts into that specific project detail page.
+
+## 7. Tips for Success
 - **Images:** Always try to use compressed images (JPEG or WebP format) to keep your website loading quickly.
 - **Excerpts:** Always write a custom excerpt for your posts and pages; it helps with SEO and looks better on social media.
+- **Preview:** Use the "Preview" button in the top right of the editor to see how your post or page will look on Desktop and Mobile before publishing.
+- **Canonical URL:** Some links like Linkedin links of People are put in Canonical URL ( Post Creation side panel > META Data > Canonial URL ).
 - **Preview:** Use the "Preview" button in the top right of the editor to see how your post or page will look on Desktop and Mobile before publishing.
