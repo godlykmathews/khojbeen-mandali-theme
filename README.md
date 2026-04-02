@@ -1,6 +1,6 @@
 # Khojbeen Mandali Website
 
-![Khojbeen Preview](https://github.com/user-attachments/assets/02140229-63c5-4a88-9d60-3d7968f16931)
+![Khojbeen Preview](https://github.com/user-attachments/assets/8bc14653-ea3a-40fe-95b1-3686694de48a)
 
 A custom, dynamic Ghost theme built specifically for the NGO **Khojbeen Mandali**.
 
