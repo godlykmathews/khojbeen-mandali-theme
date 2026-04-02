@@ -42,6 +42,33 @@
       "xl": {
         "width": 2000
       }
+    },
+    "custom": {
+      "illustrations_author": {
+        "type": "text",
+        "default": "Bansi",
+        "group": "footer"
+      },
+      "illustrations_link": {
+        "type": "text",
+        "default": "https://www.linkedin.com/in/bansi-sharma-977004133/",
+        "group": "footer"
+      },
+      "contact_phone": {
+        "type": "text",
+        "default": "+91 95370 68736",
+        "group": "footer"
+      },
+      "contact_person": {
+        "type": "text",
+        "default": "Mihir",
+        "group": "footer"
+      },
+      "contact_email": {
+        "type": "text",
+        "default": "learningwalamihir@gmail.com",
+        "group": "footer"
+      }
     }
   }
 }
