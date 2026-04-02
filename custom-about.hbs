@@ -83,11 +83,8 @@
         {{#get "posts" filter="tag:hash-strategic-team" limit="100"}}
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-8">
             {{#foreach posts}}
-              {{#if canonical_url}}
-                <a href="{{canonical_url}}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group cursor-pointer">
-              {{else}}
-                <a href="{{url}}" class="flex flex-col items-center text-center group cursor-pointer">
-              {{/if}}
+              <!-- Card: Opens modal on click -->
+              <div onclick="openTeamModal('modal-{{id}}')" class="flex flex-col items-center text-center group cursor-pointer">
                 {{#if feature_image}}
                   <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-transparent group-hover:border-green-600 transition-all duration-300 shadow-md group-hover:shadow-lg">
                     <img
@@ -106,7 +103,61 @@
                 {{#if custom_excerpt}}
                   <p class="text-gray-500 mt-3 text-base md:text-lg max-w-xs mx-auto">{{custom_excerpt}}</p>
                 {{/if}}
-              </a>
+              </div>
+
+              <!-- Modal Template for this Team Member -->
+              <div id="modal-{{id}}" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <!-- Overlay -->
+                <div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm transition-opacity" onclick="closeTeamModal('modal-{{id}}')"></div>
+
+                <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                  <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border border-gray-100">
+                    
+                    <!-- Close Button -->
+                    <button onclick="closeTeamModal('modal-{{id}}')" class="absolute right-4 top-4 text-gray-400 hover:text-gray-600 z-10 bg-white/80 rounded-full p-2 hover:bg-gray-100 transition-colors">
+                      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+
+                    <div class="flex flex-col md:flex-row h-full">
+                      <!-- Modal Image Side -->
+                      <div class="w-full md:w-2/5 bg-gray-50 flex-shrink-0">
+                        {{#if feature_image}}
+                          <img src="{{img_url feature_image size="l"}}" alt="{{title}}" class="w-full h-64 md:h-full object-cover" />
+                        {{else}}
+                          <div class="w-full h-64 md:h-full flex items-center justify-center bg-gray-200">
+                             <span class="text-gray-400 text-6xl font-bold">{{title.[0]}}</span>
+                          </div>
+                        {{/if}}
+                      </div>
+                      
+                      <!-- Modal Content Side -->
+                      <div class="w-full md:w-3/5 p-8 md:p-10 lg:p-12 overflow-y-auto max-h-[80vh] md:max-h-[600px] flex flex-col justify-center">
+                        <h3 class="text-3xl font-extrabold text-gray-900 mb-2 truncate" id="modal-title">{{title}}</h3>
+                        
+                        {{#if custom_excerpt}}
+                          <p class="text-lg text-green-700 font-medium mb-6 pb-6 border-b border-gray-100">{{custom_excerpt}}</p>
+                        {{/if}}
+                        
+                        <div class="prose prose-md text-gray-600">
+                          {{content}}
+                        </div>
+
+                        {{#if canonical_url}}
+                           <div class="mt-auto pt-6 border-t border-gray-100 flex justify-start">
+                              <a href="{{canonical_url}}" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md hover:border-[#0A66C2] transition-all duration-300 w-full sm:w-auto">
+                                <svg class="w-6 h-6 text-[#0A66C2] group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span class="text-gray-700 group-hover:text-[#0A66C2] font-semibold text-sm transition-colors">Visit LinkedIn Profile</span>
+                                <svg class="w-5 h-5 text-gray-400 group-hover:text-[#0A66C2] transform group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                              </a>
+                           </div>
+                        {{/if}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             {{else}}
               <p class="col-span-full text-center text-gray-500 text-lg">Strategic team profiles will appear here soon.</p>
             {{/foreach}}
@@ -120,7 +171,7 @@
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block px-10 py-3 border-2 border-gray-800 rounded-full">Mentors</h2>
         </div>
 
-        {{#get "posts" filter="tag:hash-advisory-board" limit="100"}}
+        {{#get "posts" filter="tag:hash-mentors" limit="100"}}
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-8">
             {{#foreach posts}}
               {{#if canonical_url}}
@@ -156,4 +207,22 @@
 
     </div>
   </main>
+
+  <script>
+    function openTeamModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeTeamModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
 {{/post}}
