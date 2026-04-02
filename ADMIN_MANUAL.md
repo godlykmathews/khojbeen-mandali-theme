@@ -5,7 +5,7 @@ Welcome to the Content Management Manual for the **Khojbeen** Ghost theme. This 
 ---
 
 ## 1. Getting Started: Accessing the Admin Panel
-To manage your website, log in to your Ghost Admin dashboard by navigating to `yourwebsite.com/ghost` in your web browser. Enter your email and password to access the panel.
+To manage your website, log in to your Ghost Admin dashboard by navigating to `khojbeenmandali.in/ghost` in your web browser. Enter your email and password to access the panel.
 
 ## 2. Managing Pages & Custom Layouts
 This theme comes with several pre-designed **Custom Templates** specifically tailored for the Khojbeen website. A "Page" in Ghost is static content (like About, Contact, or a specific landing page).
@@ -45,7 +45,7 @@ You can easily control the links in your website's header (menu) and footer dire
 
 1. Go to **Settings** (gear icon at the bottom left) > **Navigation** (or **Site > Navigation** depending on the Ghost version).
 2. **Primary Navigation**: This controls your main header menu. 
-   - Add the label (e.g., "About") and the link (e.g., `yourwebsite.com/about/`).
+   - Add the label (e.g., "About") and the link (e.g., `khojbeenmandali.in/about/`).
    - Drag and drop the items to reorder them.
 3. **Secondary Navigation**: This often controls the footer links.
 4. Click **Save** when you are done.
