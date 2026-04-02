@@ -49,6 +49,18 @@
             </a>
           </div>
 
+          <!-- Banner Image inline between Logo & Navigation (Hidden on mobile) -->
+          <div class="hidden lg:flex lg:flex-1 justify-center items-center px-8 w-full overflow-visible">
+            <img src="{{asset 'images/HEADERBANNER.png'}}" alt="Khojbeen Illustration" class="w-full max-w-[800px] h-auto min-h-[130px] xl:min-h-[160px] object-contain mix-blend-multiply opacity-95 hover:opacity-100 transition-opacity duration-300 transform scale-125 xl:scale-150 origin-center" />
+          </div>
+
+          <!-- Mobile Brand Title (Visible on small screens) -->
+          <div class="flex lg:hidden flex-1 justify-center items-center px-2">
+            <span class="text-[1.6rem] sm:text-3xl font-black text-gray-900 tracking-wide font-['Baloo_2',_cursive] leading-none whitespace-nowrap drop-shadow-sm">
+              Khojbeen Mandali
+            </span>
+          </div>
+
           <div class="header-nav-container">
             <div class="mobile-nav-header">
               <a class="site-nav-logo mobile-nav-logo" href="{{@site.url}}">
@@ -85,7 +97,24 @@
               {{navigation}}
             {{/if}}
           </div>
-
+          
+          <button class="mobile-menu-toggle lg:hidden" aria-label="Open Menu">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 6H20M4 12H20M4 18H20"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
 
         </div>
         <div class="header-divider"></div>
