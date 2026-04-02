@@ -123,7 +123,7 @@ p {
 .site-header-global {
   position: relative;
   z-index: 220;
-  background-color: #ffffff;
+  background-color: #f7efef;
   background-image: url('data:image/svg+xml;utf8,<svg fill="none" opacity="0.3" stroke="%23f5b041" stroke-width="1" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M60 60C40 40 20 60 20 60s20 20 40 0C80 40 100 60 100 60s-20 20-40 0ZM60 60C40 80 60 100 60 100s20-20 0-40C40 40 60 20 60 20s20 20 0 40Z" /><circle cx="60" cy="60" fill="%23f5b041" r="3" stroke="none"/><circle cx="54" cy="54" fill="%23f5b041" r="1" stroke="none"/><circle cx="66" cy="54" fill="%23f5b041" r="1" stroke="none"/><circle cx="54" cy="66" fill="%23f5b041" r="1" stroke="none"/><circle cx="66" cy="66" fill="%23f5b041" r="1" stroke="none"/></svg>');
   background-size: 200px 200px;
   background-position: center top;

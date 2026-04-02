@@ -2,93 +2,117 @@
 
 {{#post}}
   <main id="main-content" class="site-main about-page">
-    <div class="inner-container about-main-container">
-      <article class="post-single about-page-article {{post_class}}">
-        <header class="post-single-header about-page-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      
+      <article class="{{post_class}} space-y-16">
+        <!-- Top Section: Image on left, Title/Intro on right -->
+        <div class="flex flex-col md:flex-row gap-10 items-center bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
           {{#if feature_image}}
-            <div class="about-feature-image-wrap">
+            <div class="w-full md:w-1/2">
               <img
                 src="{{img_url feature_image size="l"}}"
                 alt="{{title}}"
-                class="about-feature-image"
+                class="w-full h-auto rounded-2xl shadow-md object-cover aspect-[4/3]"
                 loading="lazy"
               />
             </div>
           {{/if}}
+          <div class="w-full md:w-1/2 space-y-6">
+           
+            {{#if custom_excerpt}}
+              <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">{{custom_excerpt}}</h1>
+            {{/if}}
+          </div>
+        </div>
 
-          {{#if custom_excerpt}}
-            <p class="post-single-excerpt about-intro">{{custom_excerpt}}</p>
-          {{/if}}
-        </header>
-
-        <div class="post-single-content gh-content about-content">
-          {{content}}
+        <!-- Main Text Content -->
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-gray-100">
+          <div class="prose prose-lg md:prose-xl max-w-4xl mx-auto text-gray-800">
+            {{content}}
+          </div>
         </div>
       </article>
-    </div>
 
-    <div class="inner-container team-container about-team-container">
-      <section class="strategic-team-section team-section">
-        <h2 class="team-section-title">Strategic Team</h2>
+      <!-- Team Section -->
+      <section class="mt-32">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block px-10 py-3 border-2 border-gray-800 rounded-full">Team</h2>
+        </div>
+        
         {{#get "posts" filter="tag:hash-strategic-team" limit="100"}}
-          <div class="team-grid strategic-team-grid">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-8">
             {{#foreach posts}}
-              <article class="team-card strategic-team-card">
+              {{#if canonical_url}}
+                <a href="{{canonical_url}}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group cursor-pointer">
+              {{else}}
+                <a href="{{url}}" class="flex flex-col items-center text-center group cursor-pointer">
+              {{/if}}
                 {{#if feature_image}}
-                  <img
-                    src="{{img_url feature_image size="m"}}"
-                    alt="{{title}}"
-                    class="team-member-image"
-                    loading="lazy"
-                  />
+                  <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-transparent group-hover:border-green-600 transition-all duration-300 shadow-md group-hover:shadow-lg">
+                    <img
+                      src="{{img_url feature_image size="m"}}"
+                      alt="{{title}}"
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                {{else}}
+                  <div class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gray-100 mb-6 flex items-center justify-center border-4 border-transparent group-hover:border-green-600 transition-all duration-300 shadow-md group-hover:shadow-lg">
+                     <span class="text-gray-400 text-4xl font-bold">{{title.[0]}}</span>
+                  </div>
                 {{/if}}
-                <h3 class="team-member-name">{{title}}</h3>
+                <h3 class="text-2xl font-bold text-gray-900 group-hover:text-green-700 transition-colors">{{title}}</h3>
                 {{#if custom_excerpt}}
-                  <p class="tagline team-member-tagline">{{custom_excerpt}}</p>
+                  <p class="text-gray-500 mt-3 text-base md:text-lg max-w-xs mx-auto">{{custom_excerpt}}</p>
                 {{/if}}
-                <div class="team-content">
-                  {{content}}
-                </div>
-              </article>
+              </a>
             {{else}}
-              <p class="section-empty-note">Strategic team profiles will appear here soon.</p>
+              <p class="col-span-full text-center text-gray-500 text-lg">Strategic team profiles will appear here soon.</p>
             {{/foreach}}
           </div>
         {{/get}}
       </section>
 
-      <section class="advisory-board-section team-section">
-        <h2 class="team-section-title">Advisory Board</h2>
+      <!-- Mentors Section -->
+      <section class="mt-32">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block px-10 py-3 border-2 border-gray-800 rounded-full">Mentors</h2>
+        </div>
+
         {{#get "posts" filter="tag:hash-advisory-board" limit="100"}}
-          <div class="advisory-grid">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-8">
             {{#foreach posts}}
-              {{#if feature_image}}
-                <article class="advisory-card">
-                  <img
-                    src="{{img_url feature_image size="s"}}"
-                    alt="{{title}}"
-                    class="advisory-member-image"
-                    loading="lazy"
-                  />
-                  <h3 class="advisory-member-name">{{title}}</h3>
-                  {{#if custom_excerpt}}
-                    <p class="advisory-member-role">{{custom_excerpt}}</p>
-                  {{/if}}
-                </article>
+              {{#if canonical_url}}
+                <a href="{{canonical_url}}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-center group cursor-pointer">
               {{else}}
-                <article class="advisory-list-item">
-                  <h3 class="advisory-member-name">{{title}}</h3>
-                  {{#if custom_excerpt}}
-                    <p class="advisory-member-role advisory-member-role-inline">{{custom_excerpt}}</p>
-                  {{/if}}
-                </article>
+                <a href="{{url}}" class="flex flex-col items-center text-center group cursor-pointer">
               {{/if}}
+                {{#if feature_image}}
+                  <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-transparent group-hover:border-sky-500 transition-all duration-300 shadow-md group-hover:shadow-lg">
+                    <img
+                      src="{{img_url feature_image size="m"}}"
+                      alt="{{title}}"
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                {{else}}
+                   <div class="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gray-100 mb-6 flex items-center justify-center border-4 border-transparent group-hover:border-sky-500 transition-all duration-300 shadow-md group-hover:shadow-lg">
+                     <span class="text-gray-400 text-4xl font-bold">{{title.[0]}}</span>
+                  </div>
+                {{/if}}
+                <h3 class="text-2xl font-bold text-gray-900 group-hover:text-sky-600 transition-colors">{{title}}</h3>
+                {{#if custom_excerpt}}
+                  <p class="text-gray-500 mt-3 text-base md:text-lg max-w-xs mx-auto">{{custom_excerpt}}</p>
+                {{/if}}
+              </a>
             {{else}}
-              <p class="section-empty-note">Advisory board profiles will appear here soon.</p>
+              <p class="col-span-full text-center text-gray-500 text-lg">Advisory board profiles will appear here soon.</p>
             {{/foreach}}
           </div>
         {{/get}}
       </section>
+
     </div>
   </main>
 {{/post}}
