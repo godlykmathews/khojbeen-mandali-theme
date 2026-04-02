@@ -1,0 +1,78 @@
+{{!< default}}
+
+<main class="site-main bg-[#faf9f6]">
+  {{#post}}
+    <article class="article {{post_class}}">
+      
+      <!-- Hero Header Section for the Individual Work -->
+      <header class="article-header gh-canvas max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10 md:gap-20">
+        {{#if feature_image}}
+            <figure class="w-full md:w-1/2 m-0">
+                <img
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    class="w-full aspect-[4/3] object-cover rounded-[2rem] shadow-2xl"
+                />
+            </figure>
+        {{/if}}
+
+        <div class="w-full {{#if feature_image}}md:w-1/2 text-left{{else}}text-center max-w-4xl mx-auto{{/if}}">
+            <h1 class="article-title text-5xl md:text-6xl font-black text-[#1a1aba] font-['Baloo_2',_cursive] mb-6 tracking-tight drop-shadow-sm">{{title}}</h1>
+            
+            {{#if custom_excerpt}}
+                <p class="article-excerpt text-xl md:text-2xl text-gray-600 mb-8">{{custom_excerpt}}</p>
+            {{/if}}
+        </div>
+      </header>
+
+      <!-- Main Introduction Content (If Any) -->
+      {{#if html}}
+        <section class="gh-content max-w-4xl mx-auto px-6 prose prose-lg text-gray-600 font-['Lato',_sans-serif] mb-16">
+          {{content}}
+        </section>
+      {{/if}}
+
+      <!-- Dynamic Wireframe Sections (Sub-posts via Internal Tags) -->
+      <section class="work-blocks-container max-w-7xl mx-auto px-6 pb-24 space-y-16 md:space-y-24 [&>.text-only-block+.text-only-block]:!mt-6 md:[&>.text-only-block+.text-only-block]:!mt-8">
+        {{#get "posts" filter="tag:hash-{{slug}}" limit="all" order="published_at asc"}}
+          {{#foreach posts}}
+            
+            {{#if feature_image}}
+              <!-- Alternating Image & Text Block -->
+              <div class="work-block group flex flex-col {{#if @even}}md:flex-row{{else}}md:flex-row-reverse{{/if}} items-center gap-10 md:gap-20">
+                <!-- Image Side -->
+                <div class="w-full md:w-1/2">
+                  <img src="{{img_url feature_image size="l"}}" alt="{{title}}" class="w-full h-auto aspect-[4/3] object-cover rounded-[2rem] shadow-xl" loading="lazy">
+                </div>
+                <!-- Text Side -->
+                <div class="w-full md:w-1/2 space-y-6">
+                  <h3 class="text-3xl md:text-4xl font-bold text-gray-900">{{title}}</h3>
+                  <div class="prose prose-lg text-gray-600">
+                    {{content}}
+                  </div>
+                </div>
+              </div>
+            {{else}}
+              <!-- Text Only Block (Paragraph style) -->
+              <div class="work-block text-only-block w-full max-w-4xl mx-auto pt-2 pb-0">
+                {{#if title}}<h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{{title}}</h3>{{/if}}
+                <div class="prose prose-lg text-gray-600 max-w-none">
+                  {{content}}
+                </div>
+              </div>
+            {{/if}}
+
+          {{/foreach}}
+        {{/get}}
+      </section>
+
+      <!-- Contact Footer -->
+      <footer class="mt-8 text-center pb-24 max-w-4xl mx-auto px-6">
+        <p class="text-2xl md:text-3xl font-bold text-gray-800 font-['Baloo_2',_cursive]">
+          Reach out to us &ndash; <a href="mailto:hello@khojbeenmandali.in" class="text-blue-600 hover:text-blue-800 underline decoration-4 underline-offset-4 decoration-sky-300 hover:decoration-blue-600 transition-all">hello@khojbeenmandali.in</a>
+        </p>
+      </footer>
+
+    </article>
+  {{/post}}
+</main>

@@ -1,50 +1,47 @@
-{{!< default}}
-
-<main id="main-content" class="site-main work-page">
+{{!< default}} <main id="main-content" class="site-main work-page">
   <div class="inner-container">
     {{#post}}
-      <header class="page-header">
-        <h1 class="page-title">{{title}}</h1>
-        
-        {{#if custom_excerpt}}
-          <p class="page-description">{{custom_excerpt}}</p>
-        {{/if}}
-      </header>
+    <header class="page-header">
+      <h1 class="page-title">{{title}}</h1>
 
-      <div class="page-content">
-        {{content}}
-      </div>
+      {{#if custom_excerpt}}
+      <p class="page-description">{{custom_excerpt}}</p>
+      {{/if}}
+    </header>
+
+    <div class="page-content">
+      {{content}}
+    </div>
     {{/post}}
 
     <section class="work-section index-work-section">
       {{#get "posts" filter="tag:work" limit="100"}}
-        <div class="work-posts-container">
-          {{#foreach posts}}
-            <article class="work-post {{#if @even}}work-post-even{{else}}work-post-odd{{/if}}">
-              {{#if feature_image}}
-                <div class="work-post-image">
-                  <img
-                    src="{{img_url feature_image size="l"}}"
-                    alt="{{title}}"
-                    loading="lazy"
-                  />
-                </div>
-              {{/if}}
-              <div class="work-content">
-                <h2 class="work-title">{{title}}</h2>
+      <div class="work-posts-container">
+        {{#foreach posts}}
+        <article class="work-post {{#if @even}}work-post-even{{else}}work-post-odd{{/if}}">
+          {{#if feature_image}}
+          <div class="work-post-image">
+            <img src="{{img_url feature_image size=" l"}}" alt="{{title}}" loading="lazy" />
+          </div>
+          {{/if}}
+          <div class="work-content">
+            <h2 class="work-title">{{title}}</h2>
+            {{#if custom_excerpt}}
+            <div class="work-excerpt">
 
-                <div class="work-excerpt">
-                  {{content}}
-                </div>
+              {{custom_excerpt}}
 
-                <a href="{{url}}" class="btn-learn-more">Read More</a>
-              </div>
-            </article>
-          {{else}}
-            <p class="section-empty-note">New work updates are coming soon.</p>
-          {{/foreach}}
-        </div>
+            </div>
+            {{/if}}
+
+            <a href="{{url}}" class="btn-learn-more">Read More</a>
+          </div>
+        </article>
+        {{else}}
+        <p class="section-empty-note">New work updates are coming soon.</p>
+        {{/foreach}}
+      </div>
       {{/get}}
     </section>
   </div>
-</main>
+  </main>
