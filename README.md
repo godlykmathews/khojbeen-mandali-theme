@@ -1,90 +1,91 @@
-# Khojbeen Website Theme
+# Khojbeen Mandali Website
 
-A custom Ghost theme designed for the Khojbeen NGO website.
+![Khojbeen Preview](https://github.com/user-attachments/assets/02140229-63c5-4a88-9d60-3d7968f16931)
 
-## Overview
+A custom, dynamic Ghost theme built specifically for the NGO **Khojbeen Mandali**.
 
-This is a Ghost theme built specifically for Khojbeen, featuring custom templates for different page types including about, blog, resources, and work sections.
-<img width="1916" height="894" alt="image" src="https://github.com/user-attachments/assets/02140229-63c5-4a88-9d60-3d7968f16931" />
+This project was developed during the **OASIS event** organized by the **Tech4Good Community**. Our goal was to create an impactful, easy-to-manage, and fully customizable platform to help Khojbeen Mandali showcase its resources, ongoing work, and blogs to the world.
 
-## Requirements
+---
 
-- Ghost >= 5.0.0
-- Node Version 22
-- nvm
+## 🌟 Features
 
-## Installation
+- **Custom Page Templates**: Specialized designs for About, Blog, Resources, Work, and Work Details `(custom-about.hbs`, `custom-blog.hbs`, etc.).
+- **Dynamic Footer & Social Connections**: Fully dynamic footer that allows configuring Contact Information (Phone, Email, Person) and Illustration Credits right from the Ghost Admin panel.
+- **Secondary Navigation for Socials**: Add social media links (Instagram, LinkedIn, etc.) via Ghost's secondary navigation, with automatic icon fetching!
+- **Responsive Design**: Tailored image sizing (xxs to xl) and Tailwind CSS integration for a fully responsive mobile & desktop experience.
+- **Custom Styling**: NGO-specific focus, clean styling, and 5 posts-per-page pagination.
 
-1. Clone or download this repository
-2. Navigate to your Ghost installation's `content/themes` directory
-3. Place this theme folder in the themes directory
-4. Restart Ghost
-5. Go to your Ghost Admin panel → Settings → Design
-6. Select "Khojbeen Website" theme and click "Activate"
+## 🛠️ Requirements
 
-## Theme Structure
+- **Ghost** `^5.0.0`
+- **Node.js** `v22` (Managed via `nvm`)
 
-```
+## 🚀 Installation & Setup
+
+1. **Clone the Repository**
+   Download or clone this theme inside your Ghost installation's themes directory:
+   ```bash
+   cd content/themes
+   git clone <repository_url> khojbeen-website
+   ```
+
+2. **Restart Ghost**
+   To load the theme and apply the Custom Configurations:
+   ```bash
+   ghost restart
+   ```
+
+3. **Activate the Theme**
+   Go to your **Ghost Admin Panel** → **Settings** → **Design & Branding** → **Change Theme** → Select "Khojbeen Website" and click **Activate**.
+
+## 🎨 Customizing the Theme (Admin Panel)
+
+Thanks to the dynamic integration, you no longer need to edit the code to change vital site information!
+
+**1. Contact Information & Credits**
+Navigate to **Settings** > **Design & Branding** > **Site Wide**. Here you can change:
+- **Illustrations Author** (Name of the artist)
+- **Illustrations Link** (URL to the artist's portfolio/LinkedIn)
+- **Contact Phone** & **Contact Person**
+- **Contact Email**
+
+**2. Social Media Links**
+Navigate to **Settings** > **Navigation** > **Secondary Navigation**.
+- Add the name of the platform as the **Label** (e.g., `Instagram` or `LinkedIn`).
+- Add the link to the profile as the **URL**.
+- *Note*: Naming the label "Instagram" or "LinkedIn" automatically grabs the matching logo for the footer!
+
+## 📁 Theme Structure
+
+```text
 khojbeen-website/
-├── assets/              # Static assets (CSS, JS, images)
-├── partials/           # Reusable template partials
-├── custom-about.hbs    # Custom about page template
-├── custom-blog.hbs     # Custom blog page template
-├── custom-resources.hbs # Custom resources page template
-├── custom-work.hbs     # Custom work page template
-├── default.hbs         # Default page layout
-├── index.hbs           # Homepage template
-├── page.hbs            # Standard page template
-├── post.hbs            # Blog post template
-└── package.json        # Theme configuration
+├── assets/              # CSS (Tailwind), JS, and Images
+├── partials/            # Reusable templates (navigation.hbs, site-footer.hbs)
+├── custom-about.hbs     # About page template
+├── custom-blog.hbs      # Blog layout
+├── custom-donation.hbs  # Donation page template
+├── custom-resources.hbs # Resources page template
+├── custom-work.hbs      # Work showcase template
+├── default.hbs          # Global base layout
+├── index.hbs            # Homepage template
+├── page.hbs             # Standard static page layout
+├── post.hbs             # Individual blog post layout
+└── package.json         # Theme configuration & Ghost CMS settings
 ```
 
-## Features
+## 💖 Acknowledgements
 
-- Custom page templates for specialized content sections
-- Responsive image sizing (xxs to xl)
-- 5 posts per page configuration
-- Card assets enabled
-- Custom styling for NGO content
+* **Khojbeen Mandali** - For the amazing work they do and for allowing us to contribute to their digital presence.
+* **Tech4Good Community** - For organizing the OASIS event and bringing developers together for social impact.
+* **Bansi** - For the beautiful illustrations provided for the theme.
 
-## Configuration
-
-The theme includes the following configuration settings in `package.json`:
-
-- **Posts per page**: 5
-- **Card assets**: Enabled
-- **Image sizes**: Multiple responsive sizes from 30px to 2000px width
-
-## Custom Templates
-
-This theme includes several custom page templates:
-
-- **custom-about.hbs**: For the about page
-- **custom-blog.hbs**: For the blog listing page
-- **custom-resources.hbs**: For the resources page
-- **custom-work.hbs**: For showcasing work/projects
-
-To use a custom template, select it in the page settings within Ghost Admin.
-
-## Development
-
-To work on this theme:
-
-1. Make your changes to the template files
-2. Test in a local Ghost installation
-3. Restart Ghost to see changes (or use `ghost restart` in development mode)
-
-## Author
+## 👨‍💻 Author
 
 **Godly K Mathews**
-
 - Email: work.godlykm@gmail.com
 - Website: https://godly.is-a.dev
 
-## License
+## 📝 License
 
-MIT License
-
-## Support
-
-For issues, questions, or contributions, please contact the theme author.
+This project is licensed under the MIT License.
