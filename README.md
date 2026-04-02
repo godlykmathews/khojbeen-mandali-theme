@@ -4,7 +4,7 @@
 
 A custom, dynamic Ghost theme built specifically for the NGO **Khojbeen Mandali**.
 
-This project was developed during the **OASIS event** organized by the **Tech4Good Community**. Our goal was to create an impactful, easy-to-manage, and fully customizable platform to help Khojbeen Mandali showcase its resources, ongoing work, and blogs to the world.
+This project was developed during the **OASIS Hackathon** organized by the **Tech4Good Community**. Our goal was to create an impactful, easy-to-manage, and fully customizable platform to help Khojbeen Mandali showcase its resources, ongoing work, and blogs to the world.
 
 ---
 
@@ -18,7 +18,7 @@ This project was developed during the **OASIS event** organized by the **Tech4Go
 
 ## 🛠️ Requirements
 
-- **Ghost** `^5.0.0`
+- **Ghost** `^6.0.0`
 - **Node.js** `v22` (Managed via `nvm`)
 
 ## 🚀 Installation & Setup
