@@ -2,9 +2,9 @@
 
 {{#post}}
   <main id="main-content" class="site-main about-page">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       
-      <article class="{{post_class}} space-y-16">
+      <article class="{{post_class}} space-y-12">
         <!-- Top Section: Image on left, Title/Intro on right -->
         <div class="flex flex-col md:flex-row gap-10 items-center bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
           {{#if feature_image}}
@@ -32,6 +32,47 @@
           </div>
         </div>
       </article>
+
+      <!-- Additional About Content from Posts -->
+      {{#get "posts" filter="tag:hash-about-tools" limit="all" order="published_at asc"}}
+        {{#if posts}}
+          <section class="mt-14 space-y-24">
+            {{#foreach posts}}
+              <article class="bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-gray-100 py-8 md:py-12">
+                <div class="px-6 md:px-12 mb-8">
+                  <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">{{title}}</h2>
+                  </div>
+                </div>
+                
+                {{#if feature_image}}
+                  <!-- Image hidden on mobile, shown on desktop -->
+                  <div class="hidden md:block w-full mb-8 md:mb-12">
+                    <img
+                      src="{{img_url feature_image size="xl"}}"
+                      alt="{{title}}"
+                      class="w-full h-auto"
+                      loading="lazy"
+                    />
+                  </div>
+                {{/if}}
+                
+                <!-- Content shown on mobile, hidden on desktop -->
+                <div class="block md:hidden px-6 pb-4">
+                  <div class="prose prose-xl max-w-4xl mx-auto 
+                              font-['Baloo_2',_cursive] leading-[1.6] tracking-wide
+                              [&_ul>li:nth-child(3n+1)]:!text-[#1a1aba] [&_ul>li:nth-child(3n+1)::marker]:!text-[#1a1aba]
+                              [&_ul>li:nth-child(3n+2)]:!text-black [&_ul>li:nth-child(3n+2)::marker]:!text-black
+                              [&_ul>li:nth-child(3n)]:!text-[#f1a520] [&_ul>li:nth-child(3n)::marker]:!text-[#f1a520]
+                              [&_ul>li]:font-bold [&_ul>li]:mb-6">
+                    {{content}}
+                  </div>
+                </div>
+              </article>
+            {{/foreach}}
+          </section>
+        {{/if}}
+      {{/get}}
 
       <!-- Team Section -->
       <section class="mt-32">
