@@ -194,13 +194,13 @@ p {
 
 .logo-image {
   width: auto;
-  height: clamp(50px, 6vw, 75px);
+  height: clamp(90px, 12vw, 125px);
 }
 
 .header-nav-container {
   flex: 1 1 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 ul.nav {
@@ -211,7 +211,7 @@ ul.nav {
   flex-wrap: wrap;
   gap: 0.8rem 2rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .nav li {
@@ -232,7 +232,7 @@ ul.nav li {
 ul.nav li a {
   display: inline-block;
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: calc(1.05rem + 1px);
   font-weight: 600;
   color: var(--ink-soft);
   padding: 0.55rem 0.25rem;
