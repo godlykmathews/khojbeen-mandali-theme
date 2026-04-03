@@ -1478,8 +1478,10 @@ ul.nav li a:hover {
   .work-content,
   .blog-post-image-link,
   .blog-post-card-content {
+    flex: none;
     min-width: 0;
     width: 100%;
+    max-width: 100%;
   }
 
   .section-head {
