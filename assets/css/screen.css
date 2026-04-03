@@ -698,7 +698,7 @@ ul.nav li a:hover {
   display: flex;
   gap: 1.3rem;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
   background: var(--panel);
   border-radius: 20px;
   border: 1px solid rgba(47, 123, 69, 0.15);
@@ -706,10 +706,24 @@ ul.nav li a:hover {
   padding: 1.2rem;
 }
 
+@media (min-width: 600px) {
+  .blog-post-card {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
 .blog-post-image-link {
-  flex: 0 0 270px;
-  max-width: 100%;
+  flex: 0 0 auto;
+  width: 100%;
   margin: 0;
+}
+
+@media (min-width: 600px) {
+  .blog-post-image-link {
+    flex: 0 0 270px;
+    max-width: 100%;
+  }
 }
 
 .blog-post-image {
@@ -721,7 +735,13 @@ ul.nav li a:hover {
 
 .blog-post-card-content {
   flex: 1;
-  min-width: 260px;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .blog-post-card-content {
+    min-width: 260px;
+  }
 }
 
 .blog-post-card-title {
