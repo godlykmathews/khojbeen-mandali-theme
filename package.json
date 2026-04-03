@@ -73,6 +73,12 @@
         "type": "image",
         "description": "Upload a custom header banner image",
         "group": "homepage"
+      },
+      "work_email": {
+        "type": "text",
+        "description": "Email address for the Work Details page footer",
+        "default": "hello@khojbeenmandali.in",
+        "group": "homepage"
       }
     }
   }
