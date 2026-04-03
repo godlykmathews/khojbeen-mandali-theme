@@ -68,6 +68,11 @@
         "type": "text",
         "default": "learningwalamihir@gmail.com",
         "group": "homepage"
+      },
+      "header_banner": {
+        "type": "image",
+        "description": "Upload a custom header banner image",
+        "group": "homepage"
       }
     }
   }

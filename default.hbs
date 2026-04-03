@@ -51,7 +51,9 @@
 
           <!-- Banner Image inline between Logo & Navigation (Hidden on mobile) -->
           <div class="hidden lg:flex lg:flex-1 justify-center items-center px-8 w-full overflow-visible">
-            <img src="{{asset 'images/HEADERBANNER.png'}}" alt="Khojbeen Illustration" class="w-full max-w-[800px] h-auto min-h-[130px] xl:min-h-[160px] object-contain mix-blend-multiply opacity-95 hover:opacity-100 transition-opacity duration-300 transform scale-125 xl:scale-150 origin-center" />
+            {{#if @custom.header_banner}}
+              <img src="{{@custom.header_banner}}" alt="Khojbeen Illustration" class="w-full max-w-[800px] h-auto min-h-[130px] xl:min-h-[160px] object-contain mix-blend-multiply opacity-95 hover:opacity-100 transition-opacity duration-300 transform scale-125 xl:scale-150 origin-center" />
+            {{/if}}
           </div>
 
           <!-- Mobile Brand Title (Visible on small screens) -->
