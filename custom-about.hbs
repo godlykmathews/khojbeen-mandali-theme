@@ -106,12 +106,12 @@
               </div>
 
               <!-- Modal Template for this Team Member -->
-              <div id="modal-{{id}}" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+              <div id="modal-{{id}}" class="fixed inset-0 z-50 hidden transition-opacity duration-300 opacity-0" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <!-- Overlay -->
-                <div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm transition-opacity" onclick="closeTeamModal('modal-{{id}}')"></div>
+                <div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm" onclick="closeTeamModal('modal-{{id}}')"></div>
 
                 <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                  <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border border-gray-100">
+                  <div class="modal-content relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all duration-300 sm:my-8 sm:w-full sm:max-w-4xl border border-gray-100 flex flex-col max-h-[90vh] scale-95">
                     
                     <!-- Close Button -->
                     <button onclick="closeTeamModal('modal-{{id}}')" class="absolute right-4 top-4 text-gray-400 hover:text-gray-600 z-10 bg-white/80 rounded-full p-2 hover:bg-gray-100 transition-colors">
@@ -120,21 +120,28 @@
                       </svg>
                     </button>
 
-                    <div class="flex flex-col md:flex-row h-full">
+                    <div class="flex flex-col md:flex-row h-full overflow-hidden">
                       <!-- Modal Image Side -->
-                      <div class="w-full md:w-2/5 bg-gray-50 flex-shrink-0">
+                      <div class="w-full md:w-2/5 bg-gray-50 flex-shrink-0 h-48 md:h-auto overflow-hidden relative">
                         {{#if feature_image}}
-                          <img src="{{img_url feature_image size="l"}}" alt="{{title}}" class="w-full h-64 md:h-full object-cover" />
+                          <img src="{{img_url feature_image size="l"}}" alt="{{title}}" class="absolute inset-0 w-full h-full object-cover" />
                         {{else}}
-                          <div class="w-full h-64 md:h-full flex items-center justify-center bg-gray-200">
+                          <div class="absolute inset-0 w-full h-full flex items-center justify-center bg-gray-200">
                              <span class="text-gray-400 text-6xl font-bold">{{title.[0]}}</span>
                           </div>
                         {{/if}}
                       </div>
                       
                       <!-- Modal Content Side -->
-                      <div class="w-full md:w-3/5 p-8 md:p-10 lg:p-12 overflow-y-auto max-h-[80vh] md:max-h-[600px] flex flex-col justify-center">
-                        <h3 class="text-3xl font-extrabold text-gray-900 mb-2 truncate" id="modal-title">{{title}}</h3>
+                      <div class="w-full md:w-3/5 p-6 md:p-10 lg:p-12 overflow-y-auto flex flex-col justify-start md:justify-center flex-grow">
+                        <div class="flex items-start justify-between gap-4 mb-2 mt-4 md:mt-0">
+                          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight" id="modal-title">{{title}}</h3>
+                          {{#if canonical_url}}
+                            <a href="{{canonical_url}}" target="_blank" rel="noopener noreferrer" class="md:hidden flex-shrink-0 text-[#0A66C2] hover:scale-110 transition-transform duration-300 p-2 -mr-2 -mt-1 bg-blue-50/50 rounded-full" aria-label="LinkedIn Profile">
+                              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                          {{/if}}
+                        </div>
                         
                         {{#if custom_excerpt}}
                           <p class="text-lg text-green-700 font-medium mb-6 pb-6 border-b border-gray-100">{{custom_excerpt}}</p>
@@ -145,7 +152,7 @@
                         </div>
 
                         {{#if canonical_url}}
-                           <div class="mt-auto pt-6 border-t border-gray-100 flex justify-start">
+                           <div class="mt-auto pt-6 border-t border-gray-100 hidden md:flex justify-start">
                               <a href="{{canonical_url}}" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md hover:border-[#0A66C2] transition-all duration-300 w-full sm:w-auto">
                                 <svg class="w-6 h-6 text-[#0A66C2] group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 <span class="text-gray-700 group-hover:text-[#0A66C2] font-semibold text-sm transition-colors">Visit LinkedIn Profile</span>
@@ -213,6 +220,16 @@
       const modal = document.getElementById(modalId);
       if (modal) {
         modal.classList.remove('hidden');
+        // Force reflow for transition
+        void modal.offsetWidth;
+        modal.classList.remove('opacity-0');
+        
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.classList.remove('scale-95');
+          modalContent.classList.add('scale-100');
+        }
+
         document.body.style.overflow = 'hidden';
       }
     }
@@ -220,8 +237,18 @@
     function closeTeamModal(modalId) {
       const modal = document.getElementById(modalId);
       if (modal) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
+        modal.classList.add('opacity-0');
+        
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.classList.remove('scale-100');
+          modalContent.classList.add('scale-95');
+        }
+
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300); // Wait for transition duration
       }
     }
   </script>
